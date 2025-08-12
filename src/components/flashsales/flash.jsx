@@ -4,6 +4,7 @@ import Countdown from "react-countdown";
 import { FaStar } from "react-icons/fa";
 import frame1 from '../../assets/Rectangle.png'
 import frame2 from '../../assets/Today.png'  
+
 import frame3 from '../../assets/game.png'
 // import frame4 from '../../assets/Ellipse 16.png'
 import frame5 from '../../assets/eye.png'
