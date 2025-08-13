@@ -1,5 +1,5 @@
 import React from 'react'
-import frame3 from '../../assets/Frame 549.png'
+import frame3 from '../../assets/Frame549.png'
 // import { motion } from "framer-motion";
 
 const Anima = () => {

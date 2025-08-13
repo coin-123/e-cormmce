@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-scroll';
 
-import frame1 from '../../assets/Vector (6).png'
+import frame1 from '../../assets/Vector6.png'
 import frame2 from '../../assets/Wishlist.png'    
 import frame3 from '../../assets/Cart1.png'
 import frame4 from '../../assets/user.png'

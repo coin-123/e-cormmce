@@ -8,9 +8,9 @@ import frame2 from '../../assets/Today.png'
 import frame3 from '../../assets/game.png'
 // import frame4 from '../../assets/Ellipse 16.png'
 import frame5 from '../../assets/eye.png'
-import frame6 from '../../assets/Flash Sales.png'
-import frame7 from '../../assets/Vector (9).png'
-import frame8 from '../../assets/Vector (10).png'
+import frame6 from '../../assets/FlashSales.png'
+import frame7 from '../../assets/Vector9.png'
+import frame8 from '../../assets/Vector10.png'
 import frame9 from '../../assets/wishlist.png'
 
 // Import Swiper React components
@@ -20,7 +20,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'swiper/css';
 import 'swiper/css/pagination';
 
-// import { Pagination } from 'swiper/modules';
 
 
 
@@ -34,7 +33,6 @@ export default function Flash() {
 
 
   const totalStars = 5;
-  // const activeColorClass = "text-yellow-500 font-bold"; // style for active items
 
   // Track ratings for each product by index
   const [ratings, setRatings] = useState(() => {
@@ -54,19 +52,13 @@ export default function Flash() {
   };
 
 
-  //  const [color, setColor] = useState('bg-white'); // default Tailwind color
-
-  // const changeColor = () => {
-  //   setColor(prev => prev === 'bg-red-500' ? 'bg-blue-500' : 'bg-red-500');
-  // };
-
 
   return (
     <motion.section 
       initial={{ opacity: 0, y: 50 }}        // start hidden & pushed down
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibility
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
   
     className="flex items-center justify-center w-full h-[630px] bg-rd-900 mb-[3rem]">
       <div className="flex flex-col items-center justify-center w-[80%] h-full">

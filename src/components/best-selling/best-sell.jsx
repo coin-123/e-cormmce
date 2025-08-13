@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
+import { motion } from "framer-motion";
 import frame1 from '../../assets/Rectangle.png'
 import frame3 from '../../assets/game.png'
 import frame5 from '../../assets/eye.png'
@@ -43,7 +44,12 @@ export default function Flash() {
 
 
   return (
-    <section className="flex items-center justify-center w-full h-[630px] bg-rd-900 mb-[3rem]">
+    <motion.section 
+    initial={{ opacity: 0, y: 50 }}        // start hidden & pushed down
+  whileInView={{ opacity: 1, y: 0 }}     // animate when in view
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
+    className="flex items-center justify-center w-full h-[630px] bg-rd-900 mb-[3rem]">
       <div className="flex flex-col items-center justify-center w-[80%] h-full">
         <div className="flex items-center justify-between w-full bg-white h-[20%]">
 
@@ -502,7 +508,7 @@ export default function Flash() {
 
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

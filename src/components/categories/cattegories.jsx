@@ -1,8 +1,8 @@
 import React from 'react'
 import frame1 from '../../assets/Rectangle.png'
 import frame2 from '../../assets/browse.png'
-import frame3 from '../../assets/Vector (10).png'
-import frame4 from '../../assets/Vector (9).png'
+import frame3 from '../../assets/Vector10.png'
+import frame4 from '../../assets/Vector9.png'
 import frame5 from '../../assets/Category-CellPhone.png'
 import frame6 from '../../assets/Category-Computer.png'
 import frame7 from '../../assets/Category-SmartWatch.png'    
@@ -18,8 +18,8 @@ const Cattegories = () => {
     <motion.section
     initial={{ opacity: 0, y: 50 }}        // start hidden & pushed down
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibility
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
      className="flex w-full h-[500px] items-center justify-center bg-rd-600 border-t-[1px] borderb-[1px] mb-[3rem] border-gray-300">
         <div className="flex flex-col items-center justify-center w-[80%] h-full">
             <div className="flex items-center justify-between w-full h-[20%] ">
