@@ -1,10 +1,14 @@
 import React from 'react'
 import frame3 from '../../assets/Frame549.png'
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Anima = () => {
   return (
-    <section className="flex items-center justify-center w-full h-[48px] bg-black">
+    <motion.section
+    //  initial={{ scale: 0.8, opacity: 0 }}
+    //   animate={{  scale: 1, opacity: 1 }}
+    //   transition={{ repeat: Infinity, duration: 2, ease: "linear"}}
+     className="flex items-center justify-center w-full h-[48px] bg-black">
         <div className="flex items-center justify-center h-full w-[60%]"> 
             <div className="flex items-center justify-center h-full gap-[10px]">
                   <p className="text-white"> Summer Sale For All Swim And Free Express Delivery - OFF 50%!</p>           
@@ -30,7 +34,7 @@ const Anima = () => {
       Hover Me
     </motion.button> */}
         </div>
-    </section>
+    </motion.section>
   )
 }
 

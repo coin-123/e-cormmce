@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Countdown from "react-countdown";
 import { FaStar } from "react-icons/fa";
@@ -12,6 +12,9 @@ import frame6 from '../../assets/FlashSales.png'
 import frame7 from '../../assets/Vector9.png'
 import frame8 from '../../assets/Vector10.png'
 import frame9 from '../../assets/wishlist.png'
+import frame10 from '../../assets/keyboard.png'
+import frame11 from '../../assets/television.png'
+import frame12 from '../../assets/chair.png'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -28,7 +31,7 @@ export default function Flash() {
 
 
  
-
+const swiperRef = useRef(null);
 
 
 
@@ -51,7 +54,7 @@ export default function Flash() {
     setRatings(prev => ({ ...prev, [productIndex]: starIndex }));
   };
 
-
+// const [slideDirection, setSlideDirection] = useState(null); // 'left' or 'right'
 
   return (
     <motion.section 
@@ -95,8 +98,16 @@ export default function Flash() {
 
           <div className="flex items-center justify-center bg-gree-500 w-[13%] h-full gap-[1.5em]">
 
-            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[45%] rounded-[100%] cursor-pointer">  <img src={frame8} alt="" className='' /></div>
-            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[45%] rounded-[100%] cursor-pointer">  <img src={frame7} alt="" className="" /></div>
+            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[45%] rounded-[100%] cursor-pointer"
+            onClick={() => swiperRef.current?.slidePrev()}
+            > 
+             <img src={frame8} alt="" className='' />
+            </div>
+            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[45%] rounded-[100%] cursor-pointer"
+            onClick={() => swiperRef.current?.slideNext()}
+            > 
+             <img src={frame7} alt="" className="" />
+            </div>
           </div>
 
 
@@ -112,9 +123,7 @@ export default function Flash() {
           <Swiper
         slidesPerView={1}
         spaceBetween={10}
-        // pagination={{
-        //   clickable: true,
-        // }}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -132,15 +141,30 @@ export default function Flash() {
         modules={[ ]}
         className=" h-hull w-full"
       >
+
+
+        {/* first cart slide */}
+
         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative "> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative "> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem] " >
 
-                <img src={frame5} alt="" className="cursor-pointer" />
-                <img src={frame9} alt="" className="cursor-pointer" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
@@ -155,7 +179,7 @@ export default function Flash() {
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className="">HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -181,20 +205,35 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* second cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
+              <img src={frame10} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -202,12 +241,12 @@ export default function Flash() {
 </button>
             </div>
 
-            <div className="flex items-center justify-center w-full bg-white">
+            <div className="flex items-center justify-center w-full bg-red-400">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className="">Wireless Keyboard</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$1,520</p>
+                  <p className=" text-[#959595] line-through">$2,260</p>
                 </span>
 
 
@@ -230,20 +269,35 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* third cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
+              <img src={frame11} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -253,10 +307,20 @@ export default function Flash() {
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+<div className="relative ">
+  {/* First paragraph */}
+  <p className="peer">
+    Samsung Smart...
+  </p>
+
+  {/* Second paragraph (hidden until hover) */}
+  <p className="text-[10px] font-bold hidden absolute top-3 left-0 bg-white shadow-[#855656] p-2 peer-hover:block">
+    Samsung Smart-Screen
+  </p>
+</div>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$20,520</p>
+                  <p className=" text-[#959595] line-through">$30,460</p>
                 </span>
 
 
@@ -279,20 +343,35 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* fourth cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] h-[141px] bg-ed-500">
+              <img src={frame12} alt="" className='h-[100%]' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -302,10 +381,10 @@ export default function Flash() {
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className="">Comfort Chair</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$220</p>
+                  <p className=" text-[#959595] line-through">$460</p>
                 </span>
 
 
@@ -328,15 +407,30 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* fifth cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+               <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
@@ -377,15 +471,30 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* sixt cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
@@ -428,15 +537,30 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* sevent cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
@@ -477,15 +601,30 @@ export default function Flash() {
             </div>
           </div>
         </SwiperSlide>
+
+
+        {/* eightey cart slide */}
+
          <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+          <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
               <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 

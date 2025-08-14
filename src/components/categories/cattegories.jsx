@@ -1,8 +1,8 @@
 import React from 'react'
 import frame1 from '../../assets/Rectangle.png'
 import frame2 from '../../assets/browse.png'
-import frame3 from '../../assets/Vector10.png'
-import frame4 from '../../assets/Vector9.png'
+// import frame3 from '../../assets/Vector10.png'
+// import frame4 from '../../assets/Vector9.png'
 import frame5 from '../../assets/Category-CellPhone.png'
 import frame6 from '../../assets/Category-Computer.png'
 import frame7 from '../../assets/Category-SmartWatch.png'    
@@ -20,10 +20,10 @@ const Cattegories = () => {
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
-     className="flex w-full h-[500px] items-center justify-center bg-rd-600 border-t-[1px] borderb-[1px] mb-[3rem] border-gray-300">
+     className="flex w-full h-[500px] items-center justify-center bg-rd-600 border-t-[1px] borderb-[1px] pt-[3rem] mb-[3rem] border-gray-300">
         <div className="flex flex-col items-center justify-center w-[80%] h-full">
             <div className="flex items-center justify-between w-full h-[20%] ">
-                <div className="flex-col flex ites-center justify-center ">
+                <div className="flex-col flex gap-[2rem] ites-center justify-center bg-rd-500">
                     <div className="flex items-center jutify-center bg-blak gap-[1rem] ">
                         <div className="items-center flex">
                             <img src={frame1} alt="" className="" />
@@ -40,8 +40,8 @@ const Cattegories = () => {
 
 <div className="flex items-center justify-center bg-gree-500 w-[13%] h-full gap-[1.5em]">
 
-            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[55%] rounded-[100%] cursor-pointer">  <img src={frame3} alt="" className='' /></div>
-            <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[55%] rounded-[100%] cursor-pointer">  <img src={frame4} alt="" className="" /></div>
+            {/* <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[55%] rounded-[100%] cursor-pointer">  <img src={frame3} alt="" className='' /></div> */}
+            {/* <div className="flex items-center w-[37%] bg-[#e2e2e2] justify-center h-[55%] rounded-[100%] cursor-pointer">  <img src={frame4} alt="" className="" /></div> */}
           </div>           
           
            </div>

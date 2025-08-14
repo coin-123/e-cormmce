@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import frame1 from '../../assets/Rectangle.png'
-import frame3 from '../../assets/game.png'
+import frame3 from '../../assets/clothes.png'
 import frame5 from '../../assets/eye.png'
 import frame6 from '../../assets/best-selling.png'
 import frame9 from '../../assets/wishlist.png'
+import frame10 from '../../assets/Frame606.png'
+import frame11 from '../../assets/gamer.png'
+import frame12 from '../../assets/sam.png'
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+// Import  React components
+// import { , Slide } from '/react';
 
 
-import 'swiper/css/pagination';
+// import '/css/pagination';
 
 
 
@@ -49,7 +52,7 @@ export default function Flash() {
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
-    className="flex items-center justify-center w-full h-[630px] bg-rd-900 mb-[3rem]">
+    className="flex items-center justify-center w-full h-[630px] bg-rd-900 pt-[3rem] mb-[3rem] border-t-[1px] border-gray-300">
       <div className="flex flex-col items-center justify-center w-[80%] h-full">
         <div className="flex items-center justify-between w-full bg-white h-[20%]">
 
@@ -77,52 +80,41 @@ export default function Flash() {
       </div>
         </div>
 
+          {/* all cart holder */}
 
-
-        <div className="flex flex-col items-center justify-between w-full h-[73%]  bg-blue400 pt-[1rem]">
+        <div className="flex items-center justify-between w-full h-[73%]  bgblue-400 pt-[1rem]">
           
 
-          <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 50,
-          },
-        }}
-        modules={[ ]}
-        className=" h-hull w-full"
-      >
-        <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative "> 
+         {/* first cart product */}
+
+          <div className="flex flex-col items-center justify-between bg-gray-200  group relative h-[75%]"> 
             <div className="flex items-center justify-between w-[90%]">
 
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
+              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
               <div className="flex items-center justify-center gap-[0.5rem] " >
 
-                <img src={frame5} alt="" className="cursor-pointer" />
-                <img src={frame9} alt="" className="cursor-pointer" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+            <div className="flex items-center justify-center w-[90%] bg-red500 h-[47%]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -130,8 +122,8 @@ export default function Flash() {
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">HAVIT HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$320</p>
+                  {/* <p className=" text-[#959595] line-through">$160</p> */}
                 </span>
 
 
@@ -153,25 +145,38 @@ export default function Flash() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+
+           
+          {/* second cart product */}
+
+          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
+              <div className="flex items-center justify-center text-[9.6px] g-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> </div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%]  h-[47%]">
+              <img src={frame10} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -179,8 +184,8 @@ export default function Flash() {
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">HAVIT HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$300</p>
+                  {/* <p className=" text-[#959595] line-through">$160</p> */}
                 </span>
 
 
@@ -202,25 +207,37 @@ export default function Flash() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+
+         {/* third cart product */}
+
+          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
+              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] bgred-500 h-[46%]">
+              <img src={frame11} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -228,8 +245,8 @@ export default function Flash() {
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">HAVIT HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$463</p>
+                  {/* <p className=" text-[#959595] line-through">$160</p> */}
                 </span>
 
 
@@ -251,25 +268,37 @@ export default function Flash() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+       
+          {/* fourt cart products */}
+
+          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
             <div className="flex items-center justify-between w-[90%]">
 
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
+              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
               <div className="flex items-center justify-center gap-[0.5rem]">
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] bgred-500 h-[47%]">
+              <img src={frame12} alt="" className='w-ful h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -277,8 +306,8 @@ export default function Flash() {
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">HAVIT HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)] ">$500</p>
+                  {/* <p className=" text-[#959595] line-through">$160</p> */}
                 </span>
 
 
@@ -300,25 +329,39 @@ export default function Flash() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
+
+          {/* fifth cart product */}
+
+           <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative "> 
             <div className="flex items-center justify-between w-[90%]">
 
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
+              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
+              <div className="flex items-center justify-center gap-[0.5rem] " >
 
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
+                <motion.img 
+                src={frame5} alt=""
+                whileHover={{ scale: 1.35,   }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness:300 }}
+                className="cursor-pointer  " />
+
+                <motion.img 
+                 whileHover={{ scale: 1.35,   }}
+                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                src={frame9} alt="" 
+                className="cursor-pointer" />
+
+
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[47%]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -326,8 +369,8 @@ export default function Flash() {
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">HAVIT HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
+                  <p className="text-[rgba(219,68,68,1)]">$230</p>
+                  {/* <p className=" text-[#959595] line-through">$160</p> */}
                 </span>
 
 
@@ -349,158 +392,11 @@ export default function Flash() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
-                </span>
-
-
-{/*     
-
-    */}
-           <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(8, starIdx)}
-          className={
-            ratings[8] !== undefined && starIdx <= ratings[8]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
-                </span>
-
-
-
-           <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(9, starIdx)}
-          className={
-            ratings[9] !== undefined && starIdx <= ratings[9]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-         <SwiperSlide> 
-          <div className="flex flex-col items-center justify-center bg-gray-200 w-[] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> -30%</div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <img src={frame5} alt="" />
-                <img src={frame9} alt="" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$120</p>
-                  <p className=" text-[#959595] line-through">$160</p>
-                </span>
-
-
-
-           <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(10, starIdx)}
-          className={
-            ratings[10] !== undefined && starIdx <= ratings[10]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+       
+       
+       
         
-      </Swiper>
+     
 
       
 

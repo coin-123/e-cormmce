@@ -9,6 +9,7 @@ import Intro from './components/intro/intro.jsx'
 import Flash from './components/flashsales/flash.jsx'
 import Cattegories from './components/categories/cattegories.jsx'
 import BestSell from './components/best-selling/best-sell.jsx'
+import Adsec from './components/ad-section/adsec.jsx'
 // import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -18,7 +19,9 @@ createRoot(document.getElementById('root')).render(
     <Intro />
     <Flash />
     <Cattegories />
-    <BestSell />     
+    <BestSell />  
+    <Adsec />
+    {/* <App /> */}   
 
   </StrictMode>,
 )
