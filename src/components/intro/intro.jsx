@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import frame1 from '../../assets/shopnow2.png'
 import frame2 from '../../assets/endframe.png'
 import frame4 from '../../assets/apple.png'
-import frame6 from '../../assets/vector7.png'
+import frame6 from '../../assets/Vector7.png'
 import frame7 from '../../assets/iphone.png'
 import frame8 from '../../assets/Vector8.png'
 import frame9 from '../../assets/Up.png'
