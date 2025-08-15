@@ -10,7 +10,7 @@ import frame5 from '../../assets/Exclusive.png'
 const Nav = () => {
   return (
     <section className="flex items-center justify-center w-full h-[80px]  pt-[1.1rem] border-b-[1px] border-solid border-[#e2e2e2]">
-        <div className="flex items-center justify-between w-[80%] h-[38px] ">
+        <div className="flex items-center justify-between w-[90%] h-[38px] ">
             <div className=""> <img src={frame5} alt="" /></div>
            <div className="flex items-center justify-center gap-[30px]">
   {["Home", "Contact", "About", "Sign Up"].map((label, idx) => {

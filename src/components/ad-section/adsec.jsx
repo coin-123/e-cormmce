@@ -14,7 +14,7 @@ const Adsec = () => {
          className="  flex items-center justify-center w-full h-[520px]  mb-[3rem]"
         >
 
-           <div className="flex items-center justify-center w-[80%] h-full bg-black rounded-[3px]">
+           <div className="flex items-center justify-center w-[90%] h-full bg-black rounded-[3px]">
 
             {/* Advert Test */}
             <div className="flex flex-col items-cener justify-center w-[50%] h-full bg-blac pl-[2.5rem]  gap-[1rem]">

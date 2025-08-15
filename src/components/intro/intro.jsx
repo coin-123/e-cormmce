@@ -38,8 +38,8 @@ const Intro = () => {
       className="flex items-center justify-center w-full h-[calc(100vh-128px)]"
     >
       
-        <div className="flex items-center justify-between w-[80%] h-[90%]">
-            <div className="flex items-center w-[18%] h-full bg-ink-500 border-r-[1px] border-gray-300">
+        <div className="flex items-center justify-between w-[90%] h-[100%]">
+            <div className="flex items-center w-[18%] h-full bg-ink-500 border-r-[1px] border-gray-300 g-red-400">
                 <div className="flex flex-col items-cente justify-between w-[90%] h-[72%] bg-lue-200">
                     <a href="" className="flex items-center gap-[1rem] justify-between"> Woman's Fashion                     <img src={frame6} alt="" className="" /></a>
                     <a href="" className="flex items-center gap-[1rem] justify-between">Men's Fashion                     <img src={frame6} alt="" className="" /></a>

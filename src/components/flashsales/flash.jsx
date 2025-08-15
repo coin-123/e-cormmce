@@ -15,6 +15,7 @@ import frame9 from '../../assets/Wishlist.png'
 import frame10 from '../../assets/keyboard.png'
 import frame11 from '../../assets/television.png'
 import frame12 from '../../assets/chair.png'
+import frame13 from '../../assets/jbl.png'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -64,7 +65,7 @@ const swiperRef = useRef(null);
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
   
     className="flex items-center justify-center w-full h-[630px] bg-rd-900 mb-[3rem]">
-      <div className="flex flex-col items-center justify-center w-[80%] h-full">
+      <div className="flex flex-col items-center justify-center w-[90%] h-full">
         <div className="flex items-center justify-between w-full bg-white h-[20%]">
 
           <div className="flex items-center justify-between w-[50%] h-full bg-yelow-300">
@@ -168,12 +169,12 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -237,11 +238,11 @@ const swiperRef = useRef(null);
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
-            <div className="flex items-center justify-center w-full bg-red-400">
+            <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
                 <p className="">Wireless Keyboard</p>
                 <span className="flex gap-[0.5rem]">
@@ -301,7 +302,7 @@ const swiperRef = useRef(null);
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -375,7 +376,7 @@ const swiperRef = useRef(null);
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
@@ -434,18 +435,18 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
+              <img src={frame13} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className=""> HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -498,18 +499,18 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+           <div className="flex items-center justify-center w-[90%] h-[141px]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className=""> HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -564,18 +565,18 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className=""> HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -628,18 +629,18 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%]">
+            <div className="flex items-center justify-center w-[90%] h-[141px]">
               <img src={frame3} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Smooth Hover
+  Add To Cart
 </button>
             </div>
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
+                <p className=""> HV-G92 Gamepad</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>

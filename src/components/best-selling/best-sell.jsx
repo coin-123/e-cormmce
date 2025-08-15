@@ -53,7 +53,7 @@ export default function Flash() {
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
     className="flex items-center justify-center w-full h-[630px] bg-rd-900 pt-[3rem] mb-[3rem] border-t-[1px] border-gray-300">
-      <div className="flex flex-col items-center justify-center w-[80%] h-full">
+      <div className="flex flex-col items-center justify-center w-[90%] h-full">
         <div className="flex items-center justify-between w-full bg-white h-[20%]">
 
           <div className="flex items-center justify-between w-[50%] h-full bg-yelow-300">

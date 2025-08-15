@@ -20,8 +20,8 @@ const Cattegories = () => {
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
-     className="flex w-full h-[500px] items-center justify-center bg-rd-600 border-t-[1px] borderb-[1px] pt-[3rem] mb-[3rem] border-gray-300">
-        <div className="flex flex-col items-center justify-center w-[80%] h-full">
+     className="flex w-full h-[500px] items-center justify-center bg-rd-600 pt-[3rem] mb-[3rem] ">
+        <div className="flex flex-col items-center justify-center w-[90%] h-full">
             <div className="flex items-center justify-between w-full h-[20%] ">
                 <div className="flex-col flex gap-[2rem] ites-center justify-center bg-rd-500">
                     <div className="flex items-center jutify-center bg-blak gap-[1rem] ">
