@@ -11,6 +11,8 @@ import Cattegories from './components/categories/cattegories.jsx'
 import BestSell from './components/best-selling/best-sell.jsx'
 import Adsec from './components/ad-section/adsec.jsx'
 import Products from './components/products/products.jsx'
+import Newprd from './components/new-products/newprd.jsx'
+import Features from './components/features/features.jsx'
 // import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -23,6 +25,8 @@ createRoot(document.getElementById('root')).render(
     <BestSell />  
     <Adsec />
     <Products />
+    <Newprd />
+    <Features />
     {/* <App /> */}   
 
   </StrictMode>,
