@@ -13,6 +13,7 @@ import Adsec from './components/ad-section/adsec.jsx'
 import Products from './components/products/products.jsx'
 import Newprd from './components/new-products/newprd.jsx'
 import Features from './components/features/features.jsx'
+import Footer from './components/footer/footer.jsx'
 // import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
     <Products />
     <Newprd />
     <Features />
+    <Footer />
     {/* <App /> */}   
 
   </StrictMode>,
