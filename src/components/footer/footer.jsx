@@ -9,6 +9,7 @@ import { MdOutlineSend } from "react-icons/md";
 import frame1 from '../../assets/qrcode.png'
 import frame2 from '../../assets/apple.png'
 import frame3 from '../../assets/playstore.png'
+import frame4 from '../../assets/footer.png'
 
 
 
@@ -19,8 +20,8 @@ import frame3 from '../../assets/playstore.png'
 
 const Footer = () => {
   return (
-    <motion.section className="flex flex-col items-center justify-center w-full h-[450px] bg-black">
-        <div className="flex items-center justify-between w-[90%] h-[350px]  text-white">
+    <motion.section className="flex flex-col items-center justify-between w-full h-[450px] bg-black">
+        <div className="flex items-center justify-between w-[90%] h-[85%]  text-white ">
 
             {/* first links */}
 
@@ -98,7 +99,7 @@ const Footer = () => {
 
                     <p className="font-light text-[13px] mb-[7px]">Save $3 with App New User Only</p>
 
-                    <div className="flex items-center justify-between w-[260px] ">
+                    <div className="flex items-center justify-between w-[260px] mb-[1.3rem]">
                        <div className="flex items-center justify-center w-[100px] h-[95%] bg-rd-400">
                         <img src={frame1} alt="" className="w-full h-[100%]" />
                        </div>
@@ -128,7 +129,7 @@ const Footer = () => {
 
                     </div>
 
-                     <div className="flex gap-4 text-2xl">
+                     <div className="flex gap-10 text-2xl  w-[250px] ">
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <FaFacebook className="hover:text-blue-600 cursor-pointer" />
       </a>
@@ -147,7 +148,9 @@ const Footer = () => {
 
         </div>
 
-        <div className="text-white">FOOTER GOES HERE</div>
+        <div className="h-[15%] flex items-center justify-center w-full bg-[#070707] ">
+            <img src={frame4} alt="" className="" />
+            </div>
     </motion.section>
   )
 }

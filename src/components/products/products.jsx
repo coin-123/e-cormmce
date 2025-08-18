@@ -2,13 +2,23 @@ import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import frame1 from '../../assets/Rectangle.png'
-import frame3 from '../../assets/clothes.png'
+// import frame3 from '../../assets/clothes.png'
 import frame5 from '../../assets/eye.png'
 import frame6 from '../../assets/products.png'
 import frame9 from '../../assets/Wishlist.png'
-import frame10 from '../../assets/Frame606.png'
-import frame11 from '../../assets/gamer.png'
-import frame12 from '../../assets/sam.png'
+// import frame10 from '../../assets/Frame606.png'
+// import frame11 from '../../assets/gamer.png'
+// import frame12 from '../../assets/sam.png'
+import frame13 from '../../assets/cam.png'
+import frame14 from '../../assets/benz.png'
+import frame15 from '../../assets/dog.png'
+import frame16 from '../../assets/boot.png'
+import frame17 from '../../assets/jacket.png'
+import frame18 from '../../assets/usbpad.png'
+import frame19 from '../../assets/laptop.png'
+import frame20 from '../../assets/cusmetics.png'
+
+
 
 // Import  React components
 // import { , Slide } from '/react';
@@ -111,7 +121,7 @@ export default function Products() {
 
             <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
             {/* <div className="flex items-center justify-center w-[90%] h-[141px] bg-red-500"> */}
-              <img src={frame3} alt="" className='h-full' />
+              <img src={frame13} alt="" className='h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -173,7 +183,7 @@ export default function Products() {
             </div>
 
             <div className="flex items-center justify-center w-[90%]  h-[47%]">
-              <img src={frame10} alt="" className='' />
+              <img src={frame14} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -233,8 +243,8 @@ export default function Products() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%] bgred-500 h-[46%]">
-              <img src={frame11} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] bgred-500 h-[43%]">
+              <img src={frame15} alt="" className='h-[100%]' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -295,7 +305,7 @@ export default function Products() {
             </div>
 
             <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
-              <img src={frame12} alt="" className='w-ful h-full' />
+              <img src={frame16} alt="" className='w-ful h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -359,7 +369,7 @@ export default function Products() {
 
           <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
             {/* <div className="flex items-center justify-center w-[90%] h-[141px] bg-red-500"> */}
-              <img src={frame3} alt="" className='h-full' />
+              <img src={frame17} alt="" className='h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -423,7 +433,7 @@ export default function Products() {
 
            <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
             {/* <div className="flex items-center justify-center w-[90%] h-[141px] bg-red-500"> */}
-              <img src={frame3} alt="" className='h-full' />
+              <img src={frame18} alt="" className='h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -487,7 +497,7 @@ export default function Products() {
 
            <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
             {/* <div className="flex items-center justify-center w-[90%] h-[141px] bg-red-500"> */}
-              <img src={frame3} alt="" className='h-full' />
+              <img src={frame19} alt="" className='h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -551,7 +561,7 @@ export default function Products() {
 
            <div className="flex items-center justify-center w-[90%] bg-red500 h-[43%] ">
             {/* <div className="flex items-center justify-center w-[90%] h-[141px] bg-red-500"> */}
-              <img src={frame3} alt="" className='h-full' />
+              <img src={frame20} alt="" className='h-full' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">

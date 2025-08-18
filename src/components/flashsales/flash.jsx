@@ -6,7 +6,7 @@ import frame1 from '../../assets/Rectangle.png'
 import frame2 from '../../assets/Today.png'  
 
 import frame3 from '../../assets/game.png'
-// import frame4 from '../../assets/Ellipse 16.png'
+import frame4 from '../../assets/jacket.png'
 import frame5 from '../../assets/eye.png'
 import frame6 from '../../assets/FlashSales.png'
 import frame7 from '../../assets/Vector9.png'
@@ -16,6 +16,8 @@ import frame10 from '../../assets/keyboard.png'
 import frame11 from '../../assets/television.png'
 import frame12 from '../../assets/chair.png'
 import frame13 from '../../assets/jbl.png'
+import frame14 from '../../assets/benz.png'
+import frame15 from '../../assets/dog.png'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -446,7 +448,7 @@ const swiperRef = useRef(null);
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className=""> HV-G92 Gamepad</p>
+                <p className=""> Echo Speaker</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -499,8 +501,8 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-           <div className="flex items-center justify-center w-[90%] h-[141px]">
-              <img src={frame3} alt="" className='' />
+           <div className="flex items-center justify-center w-[90%] h-[140px]">
+              <img src={frame4} alt="" className='h-[100%]' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -510,7 +512,7 @@ const swiperRef = useRef(null);
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className=""> HV-G92 Gamepad</p>
+                <p className=""> Saint Jacket</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -566,7 +568,7 @@ const swiperRef = useRef(null);
             </div>
 
             <div className="flex items-center justify-center w-[90%] h-[141px]">
-              <img src={frame3} alt="" className='' />
+              <img src={frame14} alt="" className='' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -576,7 +578,7 @@ const swiperRef = useRef(null);
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className=""> HV-G92 Gamepad</p>
+                <p className=""> Kid Electric Car</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>
@@ -629,8 +631,8 @@ const swiperRef = useRef(null);
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[90%] h-[141px]">
-              <img src={frame3} alt="" className='' />
+            <div className="flex items-center justify-center w-[90%] h-[140px] bg-red-00">
+              <img src={frame15} alt="" className='h-[100%]' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
@@ -640,7 +642,7 @@ const swiperRef = useRef(null);
 
             <div className="flex items-center justify-center w-full bg-white">
               <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className=""> HV-G92 Gamepad</p>
+                <p className=""> Dry Dog Food</p>
                 <span className="flex gap-[0.5rem]">
                   <p className="text-[rgba(219,68,68,1)]">$120</p>
                   <p className=" text-[#959595] line-through">$160</p>

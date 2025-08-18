@@ -24,7 +24,7 @@ const Newprd = () => {
                   <div className="flex flex-col item-center jusitfy-center w-full  gap-[2rem]">
                       <div className="flex items-center justify- bg-red-00 gap-[1rem]">
                       <img src={frame1} alt="" />
-                                <p className="text-[rgba(219,68,68,1)] font-bold">Our Products</p>
+                                <p className="text-[rgba(219,68,68,1)] font-bold">Featured</p>
                     </div>
         
                     <div className="flex items-center">
