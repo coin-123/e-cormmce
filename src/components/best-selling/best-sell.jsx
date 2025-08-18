@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import frame1 from '../../assets/Rectangle.png'
 import frame3 from '../../assets/clothes.png'
+import frame4 from '../../assets/jbl.png'
 import frame5 from '../../assets/eye.png'
 import frame6 from '../../assets/best-selling.png'
 import frame9 from '../../assets/Wishlist.png'
@@ -61,7 +62,7 @@ export default function Flash() {
           <div className="flex flex-col item-center jusitfy-center w-full  gap-[2rem]">
               <div className="flex items-center justify- bg-red-00 gap-[1rem]">
               <img src={frame1} alt="" />
-                        <p className="text-[rgba(219,68,68,1)] font-bold">Categories</p>
+                        <p className="text-[rgba(219,68,68,1)] font-bold">This Month</p>
             </div>
 
             <div className="flex items-center">
@@ -356,8 +357,8 @@ export default function Flash() {
               </div>
             </div>
 
-           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[47%]">
-              <img src={frame3} alt="" className='' />
+           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[37%]">
+              <img src={frame4} alt="" className='h-[100%]' />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
