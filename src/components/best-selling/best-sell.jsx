@@ -357,8 +357,8 @@ export default function Flash() {
               </div>
             </div>
 
-           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[37%]">
-              <img src={frame4} alt="" className='h-[100%]' />
+           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[38%] mb-[13px]">
+              <img src={frame4} alt="" className='h-[100%] '  />
             </div>
             <div className="flex items-center justify-center w-full h-[40px] bgred-400">
 <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
