@@ -1,6 +1,6 @@
 import React from 'react'
 import Anima from '../components/animated/anima.jsx'
-import Nav from '../components/header/nav.jsx'
+import NavbarApp from '../components/header/navbarapp.jsx'
 import Intro from '../components/intro/intro.jsx'
 import Flash from '../components/flashsales/flash.jsx'
 import Cattegories from '../components/categories/cattegories.jsx'
@@ -16,7 +16,7 @@ export const Home = () => {
     return (
         <div>
             <Anima />
-            <Nav />
+            <NavbarApp />
             <Intro />
             <Flash />
             <Cattegories />
