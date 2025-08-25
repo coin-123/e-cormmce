@@ -9,7 +9,7 @@ import searchIcon from "../../assets/Vector6.png";
 const links = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
+  { label: "Contact", path: "/contactus" },
   { label: "Sign Up", path: "/signup" },
 ];
 
