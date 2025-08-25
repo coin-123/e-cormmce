@@ -28,3 +28,74 @@
   animation: gradientMove 5s ease-in-out infinite;
   background-size: 200% 200%;
 }
+
+
+
+
+/* about section */
+
+.grid-container {
+  display: grid;
+  width: 80%;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  /* background-color: dodgerblue; */
+  padding: 10px;
+}
+.grid-container > div {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 10px;
+  /* font-size: 10px; */
+  text-align: center;
+}
+
+.grid-container > div:hover{
+  background-color: rgba(219,68,68,1);
+  color: white;
+}
+
+
+/* founders apartment */
+
+
+.gridcontainer {
+  display: grid;
+  width: 90%;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  /* background-color: dodgerblue; */
+  padding: 10px;
+}
+.gridcontainer > div {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 10px;
+  /* font-size: 10px; */
+  /* text-align: center; */
+}
+
+
+
+/* Qualification section */
+
+.qul-grid-container {
+  display: grid;
+  width: 80%;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  /* background-color: dodgerblue; */
+  padding: 10px;
+}
+.qul-grid-container > div {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 10px;
+  /* font-size: 10px; */
+  text-align: center;
+}
+
+.qul-grid-container > div:hover{
+  background-color: rgba(219,68,68,1);
+  color: white;
+}
