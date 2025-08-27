@@ -11,12 +11,13 @@ const links = [
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contactus" },
   { label: "Sign Up", path: "/signup" },
+ 
 ];
 
 const icons = [
-  { src: wishlist, alt: "Wishlist" },
+  { src: wishlist, alt: "Wishlist", path: "/wishlist" },
   { src: cart, alt: "Cart" },
-  { src: user, alt: "User" },
+  { src: user, alt: "User", path: "/signup" },
   { src: searchIcon, alt: "searchIcon" },
 ];
 

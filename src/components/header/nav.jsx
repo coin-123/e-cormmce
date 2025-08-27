@@ -24,8 +24,6 @@
 //         <Link to="/signup" className="hover:underline">Sign Up</Link> */}
 //       {/* </nav> */}
 
-
-
 //             {["Home", "Contact", "About", "Sign Up"].map((label, idx) => {
 //      const targets = ["/", "contact",  "about", "signup"];
 //      return (
@@ -40,7 +38,7 @@
 //          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-500 ease-in-out"></span>
 //        </Link>
 //      );
-//    })} 
+//    })}
 //         </div>
 
 //         <div className="flex items-center justify-between w-[400px] h-[38px]   gap-[10px]">
@@ -68,73 +66,89 @@
 
 // export default Nav;
 
-
-
-
-
-
-
-
-
-
-
-
 // reusable nav bar
-
-
 
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import logoImg from "../../assets/Exclusive.png";
-// import wishlist from "../../assets/Wishlist.png";
-// import cart from "../../assets/Cart1.png";
-// import user from "../../assets/user.png";
-// import searchIcon from "../../assets/Vector6.png";
+import { motion } from "framer-motion";
+import { useStore } from "../../context/StoreContext.jsx";
 
+const Nav = ({ logo, links, bgColor, textColor, showSearch, icons }) => {
+  const { wishlist } = useStore(); // ✅ Hook must be inside function body
 
-const Nav = ({ logo, links, bgColor, textColor, showSearch, icons }) => (
-  <section className={`flex items-center justify-center w-full h-[80px] pt-[1.1rem] border-b-[1px] border-solid border-[#e2e2e2] ${bgColor}`}>
-    <div className="flex items-center justify-between w-[90%] h-[38px]">
-      {/* Logo */}
-      <div>
-        <img src={logo} alt="Logo" />
-      </div>
-      {/* Navigation Links */}
-      <div className="flex items-center justify-center gap-[30px]">
-        {links.map(({ label, path }, idx) => (
-          <Link
-            key={idx}
-            to={path}
-            className={`relative group cursor-pointer ${textColor} font-medium`}
-          >
-            {label}
-            <span className={`absolute left-0 -bottom-1 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-500 ease-in-out`}></span>
-          </Link>
-        ))}
-      </div>
-      {/* Search and Icons */}
-      <div className="flex items-center justify-between w-[400px] h-[38px] gap-[10px]">
-        {showSearch && (
-          <div className="flex items-center justify-center rounded-[3px] bg-[#e2e2e2]">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="w-[200px] h-[30px] outline-none px-2 text-[12px]"
-            />
-            <button className="text-white px-3 h-[30px] cursor-pointer">
-              <img src={icons[3]?.src} alt="search" />
-            </button>
-          </div>
-        )}
-        <div className="flex items-center justify-between w-[115px]">
-          {icons.slice(0, 3).map((icon, idx) => (
-            <img key={idx} src={icon.src} alt={icon.alt} className="cursor-pointer" />
+  return (
+    <section
+      className={`flex items-center justify-center w-full h-[80px] pt-[1.1rem] border-b-[1px] border-solid border-[#e2e2e2] ${bgColor}`}
+    >
+      <div className="flex items-center justify-between w-[90%] h-[38px]">
+        {/* Logo */}
+        <div>
+          <img src={logo} alt="Logo" />
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex items-center justify-center gap-[30px]">
+          {links.map(({ label, path }, idx) => (
+            <Link
+              key={idx}
+              to={path}
+              className={`relative group cursor-pointer ${textColor} font-medium`}
+            >
+              {label}
+              <span
+                className={`absolute left-0 -bottom-1 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-500 ease-in-out`}
+              ></span>
+            </Link>
           ))}
         </div>
+
+        {/* Search and Icons */}
+        <div className="flex items-center justify-between w-[400px] h-[38px] gap-[10px]">
+          {showSearch && (
+            <div className="flex items-center justify-center rounded-[3px] bg-[#e2e2e2] relative">
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="w-[200px] h-[30px] outline-none px-2 text-[12px]"
+              />
+              <button className="text-white px-3 h-[30px] cursor-pointer">
+                <img src={icons[3]?.src} alt="search" />
+              </button>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between w-[115px] relative">
+            {icons.slice(0, 3).map((icon, idx) =>
+              icon.path ? (
+                <Link key={idx} to={icon.path} className="relative">
+                  <motion.img
+                    whileHover={{ scale: 1.35 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    src={icon.src}
+                    alt={icon.alt}
+                  />
+                  {/* Wishlist badge */}
+                  {icon.alt === "Wishlist" && wishlist.length > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </Link>
+              ) : (
+                <img 
+                  key={idx} 
+                  src={icon.src} 
+                  alt={icon.alt} 
+                />
+              )
+            )}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Nav;
+
