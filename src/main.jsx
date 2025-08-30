@@ -5,13 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
 import { StoreProvider } from "./context/StoreContext.jsx"; // ✅ import your context
+import { CartProvider } from "./context/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <StoreProvider>   {/* ✅ Wrap App inside context */}
+      <CartProvider>
+        <StoreProvider>   {/* ✅ Wrap App inside context */}
         <App />
       </StoreProvider>
+        </CartProvider>
     </BrowserRouter>
   </StrictMode>
 );

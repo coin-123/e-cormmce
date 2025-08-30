@@ -22,12 +22,22 @@ import frame15 from "../../assets/dog.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-// import 'swiper/css';
+
 import "swiper/css/pagination";
 import { useStore } from "../../context/StoreContext.jsx";
 
+// for cart
+import  { useContext } from "react";
+import { CartContext } from "../..context/CartContext.jsx";
+
+const products = [
+  { id: 1, image: "src{frame3}", name: "Laptop", price: 2000 },
+  { id: 2, name: "Phone", price: 1000 },
+  { id: 3, name: "Headphones", price: 500 },
+];
+
 export default function Flash() {
+  const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useStore();
 
   const swiperRef = useRef(null);
@@ -45,7 +55,7 @@ export default function Flash() {
   useEffect(() => {
     localStorage.setItem("productRatings", JSON.stringify(ratings));
   }, [ratings]);
-
+  
   // Set rating for a specific product
   const handleRating = (productIndex, starIndex) => {
     setRatings((prev) => ({ ...prev, [productIndex]: starIndex }));
@@ -131,8 +141,8 @@ export default function Flash() {
             className=" h-hull w-full"
           >
             {/* first cart slide */}
-
-            <SwiperSlide>
+{products.map((p) => (
+            <SwiperSlide key={p.id}>
               <div className="flex flex-col items-center justify-center bg-[#f2f2f2] w-[] group relative ">
                 <div className="flex items-center justify-between w-[90%]">
                   <div className="flex items-center justify-center text-[9.6px] bg-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white">
@@ -174,16 +184,18 @@ export default function Flash() {
                   <img src={frame3} alt="" className="" />
                 </div>
                 <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-                  <button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
+                  <button
+                  onClick={() => addToCart(p)}
+                   class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
                     Add To Cart
                   </button>
                 </div>
 
                 <div className="flex items-center justify-center w-full bg-white">
                   <div className="flex flex-col iems-center justify-center w-[90%]">
-                    <p className="">HV-G92 Gamepad</p>
+                    <p className="">HV-G92 Gamepad  {p.name}</p>
                     <span className="flex gap-[0.5rem]">
-                      <p className="text-[rgba(219,68,68,1)]">$120</p>
+                      <p className="text-[rgba(219,68,68,1)]">$120  {p.price}</p>
                       <p className=" text-[#959595] line-through">$160</p>
                     </span>
 
@@ -204,6 +216,7 @@ export default function Flash() {
                 </div>
               </div>
             </SwiperSlide>
+                ))}
 
             {/* second cart slide */}
 

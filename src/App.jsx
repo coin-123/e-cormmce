@@ -7,6 +7,8 @@ import Login from "./pages/login.jsx";
 import Contactus from './pages/contactus.jsx'
 // import Wishlist from './pages/wishlist.jsx'
 import WishlistPage from "./pages/wishlist.jsx";
+import Cart from './pages/cart.jsx/'
+
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
     <Route path="/login" element={<Login />} />
     <Route path="/contactus" element={<Contactus />} />
     <Route path="/wishlist" element={<WishlistPage/>} />
+    <Route path="/cart" element={<Cart />} />
+
 
 
 
