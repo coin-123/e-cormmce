@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Countdown from "react-countdown";
 import { FaStar } from "react-icons/fa";
-import {
-  Swiper,
-  SwiperSlide
-} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -75,12 +72,12 @@ export default function Flash() {
           <div className="flex  sm:flex-row items-center gap-3 flex-col">
             <div className="flex items-center gap-3 flex-col">
               <div className="flex gap-2 items-center ">
-              <img src={frame1} alt="rectangle" />
-              <img src={frame2} alt="today" />
-            </div>
-            <div className="items-center">
-              <img src={frame6} alt="flash sales" />
-            </div>
+                <img src={frame1} alt="rectangle" />
+                <img src={frame2} alt="today" />
+              </div>
+              <div className="items-center">
+                <img src={frame6} alt="flash sales" />
+              </div>
             </div>
           </div>
 
@@ -136,7 +133,11 @@ export default function Flash() {
                     -30%
                   </div>
                   <div className="flex gap-2 items-center">
-                    <motion.img src={frame5} alt="eye" whileHover={{ scale: 1.2 }} />
+                    <motion.img
+                      src={frame5}
+                      alt="eye"
+                      whileHover={{ scale: 1.2 }}
+                    />
                     <motion.img
                       src={frame9}
                       alt="wishlist"
@@ -155,7 +156,8 @@ export default function Flash() {
                 {/* Add to Cart */}
                 <button
                   onClick={() => addToCart(p)}
-                  className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition hidden group-hover:block"
+                  className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition 
+             block md:hidden group-hover:md:block"
                 >
                   Add To Cart
                 </button>
@@ -165,7 +167,9 @@ export default function Flash() {
                   <p className="font-medium">{p.name}</p>
                   <div className="flex gap-2 text-sm">
                     <p className="text-red-600">${p.price}</p>
-                    <p className="text-gray-400 line-through">${p.price + 200}</p>
+                    <p className="text-gray-400 line-through">
+                      ${p.price + 200}
+                    </p>
                   </div>
 
                   {/* Ratings */}
@@ -175,7 +179,8 @@ export default function Flash() {
                         key={starIdx}
                         onClick={() => handleRating(p.id, starIdx)}
                         className={
-                          ratings[p.id] !== undefined && starIdx <= ratings[p.id]
+                          ratings[p.id] !== undefined &&
+                          starIdx <= ratings[p.id]
                             ? "text-yellow-400"
                             : "text-gray-400"
                         }
