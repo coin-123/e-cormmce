@@ -16,7 +16,7 @@ const links = [
 
 const icons = [
   { src: wishlist, alt: "Wishlist", path: "/wishlist" },
-  { src: cart, alt: "Cart" },
+  { src: cart, alt: "Cart", path: "/cart"  },
   { src: user, alt: "User", path: "/signup" },
   { src: searchIcon, alt: "searchIcon" },
 ];

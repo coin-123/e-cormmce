@@ -1,11 +1,10 @@
-// import { motion } from 'framer-motion';
-import React from 'react'
-import  { useContext } from "react";
-import { CartContext } from "./CartContext";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext"; // ✅ make sure path is correct
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
 
+  // Increase item quantity
   const increaseQty = (id) => {
     let updatedCart = cart.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -13,6 +12,7 @@ const Cart = () => {
     setCart(updatedCart);
   };
 
+  // Decrease item quantity
   const decreaseQty = (id) => {
     let updatedCart = cart
       .map((item) =>
@@ -24,133 +24,93 @@ const Cart = () => {
     setCart(updatedCart);
   };
 
+  // Remove item completely
   const removeItem = (id) => {
     let updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   };
-  
-    
-   return (
-    <div>
-      <h1>🛒 My Cart</h1>
+
+  // Calculate subtotal
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  return (
+    <section className="flex flex-col items-center justify-center w-[90%] mx-auto py-6">
+      <h1 className="text-2xl font-bold mb-6">🛒 My Cart</h1>
+
       {cart.length === 0 ? (
-        <p>Cart is empty</p>
+        <p className="text-gray-600">Cart is empty</p>
       ) : (
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - {item.quantity} x ${item.price}
-              <div>
-                <button onClick={() => increaseQty(item.id)}>➕</button>
-                <button onClick={() => decreaseQty(item.id)}>➖</button>
-                <button onClick={() => removeItem(item.id)}>❌ Remove</button>
+        <>
+          {/* Cart Items */}
+          <div className="w-full mb-6">
+            {cart.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between border-b py-3"
+              >
+                {/* Product Info */}
+                <div className="flex-1">
+                  <p className="font-semibold">{item.name}</p>
+                  <p className="text-sm text-gray-500">
+                    ${item.price} 
+                  </p>
+                </div>
+
+                {/* Quantity Controls */}
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => decreaseQty(item.id)}
+                    className="px-2 py-1 bg-gray-200 rounded"
+                  >
+                    ➖
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    onClick={() => increaseQty(item.id)}
+                    className="px-2 py-1 bg-gray-200 rounded"
+                  >
+                    ➕
+                  </button>
+                </div>
+
+                {/* Remove */}
+                <button
+                  onClick={() => removeItem(item.id)}
+                  className="ml-4 text-red-500 font-bold"
+                >
+                  {/* ❌ */}
+                  Remove
+                </button>
               </div>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+
+          {/* Cart Summary */}
+          <div className="w-full md:w-[40%] border rounded-lg p-4 shadow">
+            <h2 className="font-bold text-lg mb-4">Cart Total</h2>
+            <div className="flex justify-between border-b py-2">
+              <span>Sub-total</span>
+              <span>${subtotal}</span>
+            </div>
+            <div className="flex justify-between border-b py-2">
+              <span>Shipping</span>
+              <span className="text-green-600">Free</span>
+            </div>
+            <div className="flex justify-between border-b py-2 font-bold">
+              <span>Total</span>
+              <span>${subtotal}</span>
+            </div>
+            <button className="w-full mt-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+              Proceed to Checkout
+            </button>
+          </div>
+        </>
       )}
-    </div>
-
-
-
-
-
-    // <section className="flex flex-col items-center justify-center w-[90%] h-auto">
-    //     <h1>🛒 My Items</h1>
-
-
-    //     <div className="flex items-center justify-center w-full h-auto bg-amber-400 mb-[2rem]">
-
-    //         <div className="flex items-center justify-center w-[20%] h-[100%] bg-red-400">
-
-    //         </div>
-    //         <div className="flex items-center justify-center w-[20%] h-[100%] bg-red-400">rr</div>
-    //         <div className="flex items-center justify-center w-[20%] h-[100%] bg-red-400">rr</div>
-    //         <div className="flex items-center justify-center w-[20%] h-[100%] bg-red-400">rr</div>
-
-    //     </div>
-
-    //     <div className="flex items-center justify-center w-full">
-    //         <button className="">Return to Shop</button>
-    //         <button className="">Update Cart</button>
-    //     </div>
-
-    //     <div className="flex items-center justify-center w-full">
-    //         <div className="flex flex-col items-center  justify-center w-[40%] border">
-    //             <p className="font-bold">
-    //                 Cart Total
-    //             </p>
-    //             <div className="flex flex-col justify-center items-center w-[90%]">
-    //                 <span className="w-full border-b-[1px] pb-[10px]">
-    //                     <p className="">
-    //                         Sub-total
-    //                     </p>
-    //                     <p className=""></p>
-    //                 </span>
-    //                 <span className="w-full border-b-[1px] pb-[10px]">
-    //                     <p className="">
-    //                         Shipping
-    //                     </p>
-    //                     <p className="">free</p>
-    //                 </span>
-    //                 <span className="w-full border-b-[1px] pb-[10px]">
-    //                     <p className="">
-    //                         Total
-    //                     </p>
-    //                     <p className=""></p>
-    //                 </span>
-    //             </div>
-    //             <div className="w-full">
-    //                 <button className="bg-blue-200">Process to checkout</button>
-    //             </div>
-    //         </div>
-    //     </div>
-
-    // </section>
-
-
-
-
-
-
-
-    //   <div>
-    //    <h1>🛒 My Shop</h1>
-
-    //    {/* Example products */}
-    //    <button onClick={() => addToCart({ id: 1, name: "Laptop", price: 2000 })}>
-    //      Add Laptop
-    //    </button>
-    //    <button onClick={() => addToCart({ id: 2, name: "Phone", price: 1000 })}>
-    //      Add Phone
-    //    </button>
-
-    //    {/* Cart */}
-    //    <h2>Cart</h2>
-    //    {cart.length === 0 ? (
-    //      <p>Cart is empty</p>
-    //    ) : (
-    //      <ul>
-    //        {cart.map((item) => (
-    //          <li key={item.id}>
-    //            {item.name} - {item.quantity} x ${item.price}
-    //            <div>
-    //              <button onClick={() => increaseQty(item.id)}>➕</button>
-    //              <button onClick={() => decreaseQty(item.id)}>➖</button>
-    //              <button onClick={() => removeItem(item.id)}>❌ Remove</button>
-    //            </div>
-    //          </li>
-    //        ))}
-    //      </ul>
-    //    )}
-    //  </div>
-
+    </section>
   );
 };
 
-  
-
-  
-
-
-export default Cart
+export default Cart;
