@@ -101,8 +101,27 @@ const Nav = ({ logo, links, bgColor, textColor, showSearch, icons }) => {
               className="py-2 text-gray-800 hover:text-black"
             >
               {label}
+                {/* Sidebar (hidden on small screens) */}
+       
             </Link>
+            
           ))}
+           <div className="flex  flex-col w-[80%] h-full border-r border-t border-b border-gray-300 p-4 ">
+            <p className="font-bold text-[1.2rem] mb-[1rem] ">Categories</p>
+          <a href="#" className="">
+            Woman's Fashion 
+          </a>
+          <a href="#" className="">
+            Men's Fashion 
+          </a>
+          <a href="#">Electronics</a>
+          <a href="#">Home & Lifestyle</a>
+          <a href="#">Medicine</a>
+          <a href="#">Sports & Outdoor</a>
+          <a href="#">Baby's & Toy</a>
+          <a href="#">Groceries & Pets</a>
+          <a href="#">Health & Beauty</a>
+        </div>
         </div>
       )}
     </section>
