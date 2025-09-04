@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext"; // ✅ make sure path is correct
+import Nav from '../components/header/navbarapp.jsx'
+import Footer from "../components/footer/footer.jsx";
+
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
@@ -38,6 +41,7 @@ const Cart = () => {
 
   return (
     <section className="flex flex-col items-center justify-center w-[90%] mx-auto py-6">
+      <Nav />
       <h1 className="text-2xl font-bold mb-6">🛒 My Cart</h1>
 
       {cart.length === 0 ? (
@@ -109,6 +113,8 @@ const Cart = () => {
           </div>
         </>
       )}
+
+      <Footer />
     </section>
   );
 };
