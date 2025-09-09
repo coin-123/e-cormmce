@@ -11,6 +11,19 @@ import frame10 from '../../assets/Frame606.png'
 import frame11 from '../../assets/gamer.png'
 import frame12 from '../../assets/sam.png'
 
+import { useStore } from "../../context/StoreContext.jsx";
+import { useCart } from "../../context/CartContext.jsx";
+
+
+
+  // products Data
+    const flashProducts = [
+    { id: 1, name: "HV-G92 Gamepad", image: frame3, price: 320 },
+    { id: 2, name: "Gaming Headset", image: frame10, price: 300 },
+    { id: 3, name: "Smart Screen", image: frame11, price: 463 },
+    { id: 4, name: "Samsung Phone", image: frame12, price: 500 },
+    { id: 5, name: "JBL Speaker", image: frame4, price: 230 },
+  ];
 // Import  React components
 // import { , Slide } from '/react';
 
@@ -22,12 +35,11 @@ import frame12 from '../../assets/sam.png'
 
 export default function Flash() {
 
-
-
-
+   const { addToCart } = useCart();
+    const { addToWishlist } = useStore();
+    
 
   const totalStars = 5;
-
   // Track ratings for each product by index
   const [ratings, setRatings] = useState(() => {
     // Try to load from localStorage
@@ -53,7 +65,7 @@ export default function Flash() {
   whileInView={{ opacity: 1, y: 0 }}     // animate when in view
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
-    className="flex items-center justify-center w-full h-[630px] bg-rd-900 pt-[3rem] mb-[3rem] border-t-[1px] border-gray-300">
+    className="flex items-center justify-center w-full bg-rd-900 pt-[3rem] mb-[3rem] border-t-[1px] border-gray-300">
       <div className="flex flex-col items-center justify-center w-[90%] h-full">
         <div className="flex items-center justify-between w-full bg-white h-[20%]">
 
@@ -88,320 +100,80 @@ export default function Flash() {
 
          {/* first cart product */}
 
-          <div className="flex flex-col items-center justify-between bg-gray-200  group relative h-[75%]"> 
-            <div className="flex items-center justify-between w-[90%]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full mt-6">
+  {flashProducts.map((product) => (
+    <div
+      key={product.id}
+      className="flex flex-col items-center justify-between bg-gray-200 group relative rounded-lg shadow hover:shadow-lg transition"
+    >
+      {/* Top icons */}
+      <div className="flex items-center justify-between w-[90%] mt-2">
+        <div></div>
+        <div className="flex gap-2 items-center">
+          <motion.img
+            src={frame5}
+            alt="eye"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+           transition={{ type: "spring", stiffness: 600 }}
+            className="cursor-pointer"
+          />
+          <motion.img
+            src={frame9}
+            alt="wishlist"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+           transition={{ type: "spring", stiffness: 600 }}
+           onClick={() => addToWishlist(flashProducts)}
+            className="cursor-pointer"
+          />
+        </div>
+      </div>
 
-              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
-              <div className="flex items-center justify-center gap-[0.5rem] " >
-
-                <motion.img 
-                src={frame5} alt=""
-                whileHover={{ scale: 1.35,   }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="cursor-pointer  " />
-
-                <motion.img 
-                 whileHover={{ scale: 1.35,   }}
-                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                src={frame9} alt="" 
-                className="cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%] bg-red500 h-[47%]">
-              <img src={frame3} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Add To Cart
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$320</p>
-                  {/* <p className=" text-[#959595] line-through">$160</p> */}
-                </span>
-
-
-     <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(3, starIdx)}
-          className={
-            ratings[3] !== undefined && starIdx <= ratings[3]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
+      {/* Product Image */}
+      <div className="flex items-center justify-center w-[90%] h-[180px]">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-full object-contain"
         />
-      ))}
+      </div>
+
+      {/* Add to Cart */}
+      <div className="w-full">
+                <button
+                  onClick={() => addToCart(flashProducts)}
+                  className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition 
+             block md:hidden group-hover:md:block"
+                >
+                  Add To Cart
+                </button>
+      </div>
+
+      {/* Info */}
+      <div className="w-full bg-white px-3 py-2 text-center">
+        <p className="font-medium">{product.name}</p>
+        <p className="text-[rgba(219,68,68,1)] font-bold">${product.price}</p>
+
+        {/* Rating */}
+        <div className="flex justify-center gap-1 mt-2">
+          {[...Array(totalStars)].map((_, starIdx) => (
+            <FaStar
+              key={starIdx}
+              onClick={() => handleRating(product.id, starIdx)}
+              className={
+                ratings[product.id] !== undefined &&
+                starIdx <= ratings[product.id]
+                  ? "text-yellow-400 cursor-pointer"
+                  : "text-gray-400 cursor-pointer"
+              }
+            />
+          ))}
+        </div>
+      </div>
     </div>
-          
-
-              </div>
-            </div>
-          </div>
-
-           
-          {/* second cart product */}
-
-          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px] g-[rgba(219,68,68,1)] rounded-[4px] w-[48px] h-[20px] text-white"> </div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <motion.img 
-                src={frame5} alt=""
-                whileHover={{ scale: 1.35,   }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="cursor-pointer  " />
-
-                <motion.img 
-                 whileHover={{ scale: 1.35,   }}
-                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                src={frame9} alt="" 
-                className="cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%]  h-[47%]">
-              <img src={frame10} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Add To Cart
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$300</p>
-                  {/* <p className=" text-[#959595] line-through">$160</p> */}
-                </span>
-
-
-     <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(4, starIdx)}
-          className={
-            ratings[4] !== undefined && starIdx <= ratings[4]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-          
-
-              </div>
-            </div>
-          </div>
-
-         {/* third cart product */}
-
-          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <motion.img 
-                src={frame5} alt=""
-                whileHover={{ scale: 1.35,   }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="cursor-pointer  " />
-
-                <motion.img 
-                 whileHover={{ scale: 1.35,   }}
-                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                src={frame9} alt="" 
-                className="cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%] bgred-500 h-[46%]">
-              <img src={frame11} alt="" className='' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Add To Cart
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$463</p>
-                  {/* <p className=" text-[#959595] line-through">$160</p> */}
-                </span>
-
-
-     <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(5, starIdx)}
-          className={
-            ratings[5] !== undefined && starIdx <= ratings[5]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-          
-
-              </div>
-            </div>
-          </div>
-       
-          {/* fourt cart products */}
-
-          <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative"> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
-              <div className="flex items-center justify-center gap-[0.5rem]">
-
-                <motion.img 
-                src={frame5} alt=""
-                whileHover={{ scale: 1.35,   }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="cursor-pointer  " />
-
-                <motion.img 
-                 whileHover={{ scale: 1.35,   }}
-                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                src={frame9} alt="" 
-                className="cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center w-[90%] bgred-500 h-[47%]">
-              <img src={frame12} alt="" className='w-ful h-full' />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Add To Cart
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)] ">$500</p>
-                  {/* <p className=" text-[#959595] line-through">$160</p> */}
-                </span>
-
-
-     <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(6, starIdx)}
-          className={
-            ratings[6] !== undefined && starIdx <= ratings[6]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-          
-
-              </div>
-            </div>
-          </div>
-
-          {/* fifth cart product */}
-
-           <div className="flex flex-col items-center justify-between bg-gray-200 h-[75%] group relative "> 
-            <div className="flex items-center justify-between w-[90%]">
-
-              <div className="flex items-center justify-center text-[9.6px]  rounded-[4px] w-[48px] h-[20px] text-white"> </div>
-              <div className="flex items-center justify-center gap-[0.5rem] " >
-
-                <motion.img 
-                src={frame5} alt=""
-                whileHover={{ scale: 1.35,   }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness:300 }}
-                className="cursor-pointer  " />
-
-                <motion.img 
-                 whileHover={{ scale: 1.35,   }}
-                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                src={frame9} alt="" 
-                className="cursor-pointer" />
-
-
-              </div>
-            </div>
-
-           <div className="flex items-center justify-center w-[90%] bg-ed-500 h-[38%] mb-[13px]">
-              <img src={frame4} alt="" className='h-[100%] '  />
-            </div>
-            <div className="flex items-center justify-center w-full h-[40px] bgred-400">
-<button class="w-full bg-gray-500 hover:bg-black text-white  py-2 transition duration-300 rounded hidden group-hover:block">
-  Add To Cart
-</button>
-            </div>
-
-            <div className="flex items-center justify-center w-full bg-white">
-              <div className="flex flex-col iems-center justify-center w-[90%]">
-                <p className="">HAVIT HV-G92 Gamepad</p>
-                <span className="flex gap-[0.5rem]">
-                  <p className="text-[rgba(219,68,68,1)]">$230</p>
-                  {/* <p className=" text-[#959595] line-through">$160</p> */}
-                </span>
-
-
-     <div className="flex gap-2 text-3xl cursor-pointer">
-      {[...Array(totalStars)].map((_, starIdx) => (
-        <FaStar
-          key={starIdx}
-          onClick={() => handleRating(7, starIdx)}
-          className={
-            ratings[7] !== undefined && starIdx <= ratings[7]
-              ? "text-yellow-400"
-              : "text-gray-400"
-          }
-        />
-      ))}
-    </div>
-          
-
-              </div>
-            </div>
-          </div>
-       
-       
-       
-        
-     
-
-      
-
-
+  ))}
+</div>
 
         </div>
       </div>

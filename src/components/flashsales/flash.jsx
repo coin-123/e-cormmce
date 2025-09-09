@@ -129,7 +129,7 @@ export default function Flash() {
               <div className="flex flex-col items-center bg-gray-100 group relative rounded-lg overflow-hidden shadow hover:shadow-lg transition">
                 {/* Discount + Wishlist */}
                 <div className="flex items-center justify-between w-[90%] mt-2">
-                  <div className="text-xs bg-red-600 text-white rounded px-2 py-1">
+                  <div className="text-xs bg-[rgba(219,68,68,1)] text-white rounded px-2 py-1">
                     -30%
                   </div>
                   <div className="flex gap-2 items-center">
@@ -137,12 +137,16 @@ export default function Flash() {
                       src={frame5}
                       alt="eye"
                       whileHover={{ scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 600 }}
+
                     />
                     <motion.img
                       src={frame9}
                       alt="wishlist"
                       className="cursor-pointer"
                       whileHover={{ scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 600 }}
+
                       onClick={() => addToWishlist(p)}
                     />
                   </div>
@@ -166,7 +170,7 @@ export default function Flash() {
                 <div className="flex flex-col w-full bg-white p-3">
                   <p className="font-medium">{p.name}</p>
                   <div className="flex gap-2 text-sm">
-                    <p className="text-red-600">${p.price}</p>
+                    <p className="text-[rgba(219,68,68,1)]">${p.price}</p>
                     <p className="text-gray-400 line-through">
                       ${p.price + 200}
                     </p>

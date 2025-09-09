@@ -33,7 +33,7 @@ const Cattegories = () => {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <img src={frame1} alt="" />
-              <p className="text-red-600 font-bold">Categories</p>
+              <p className="text-[rgba(219,68,68,1)] font-bold">Categories</p>
             </div>
             <div>
               <img src={frame2} alt="" />
@@ -46,7 +46,7 @@ const Cattegories = () => {
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center border border-gray-300 rounded-lg p-4 cursor-pointer hover:bg-red-600 hover:text-white transition-all duration-300"
+              className="flex flex-col items-center justify-center border border-gray-300 rounded-lg p-4 cursor-pointer hover:bg-[rgba(219,68,68,1)] hover:text-white transition-all duration-300"
             >
               <img src={item.img} alt={item.name} className="w-12 h-12 object-contain" />
               <p className="mt-2 text-sm sm:text-base">{item.name}</p>
