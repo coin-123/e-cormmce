@@ -18,10 +18,10 @@ import { useCart } from "../../context/CartContext.jsx";
 
   // products Data
     const flashProducts = [
-    { id: 1, name: "HV-G92 Gamepad", image: frame3, price: 320 },
-    { id: 2, name: "Gaming Headset", image: frame10, price: 300 },
-    { id: 3, name: "Smart Screen", image: frame11, price: 463 },
-    { id: 4, name: "Samsung Phone", image: frame12, price: 500 },
+    { id: 1, name: "Sweater", image: frame3, price: 320 },
+    { id: 2, name: "Lofers Bag", image: frame10, price: 300 },
+    { id: 3, name: "LG Speaker", image: frame11, price: 463 },
+    { id: 4, name: "Book Shelf", image: frame12, price: 500 },
     { id: 5, name: "JBL Speaker", image: frame4, price: 230 },
   ];
 // Import  React components

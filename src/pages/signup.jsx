@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc"; // colored Google icon
 import Anima from "../components/animated/anima.jsx";
 import Nav from "../components/header/nav.jsx";
@@ -20,6 +22,29 @@ const icons = [
 ];
 
 const Signup = () => {
+
+
+   const { signup } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      signup(email, password);
+      alert("Account created successfully!");
+    } catch (err) {
+      alert(err.message); // show "Account already exists"
+    }
+  };
+
+
+
+
+
+
+
+
   return (
     <section className="flex flex-col items-center justify-center w-full ">
       {/* Top components */}
@@ -49,28 +74,32 @@ const Signup = () => {
     </div>
 
     <div className="flex items-center justify-center w-full md:w-[80%]">
-      <form action="" className="flex flex-col gap-6 w-full" name="form">
+      <form onSubmit={handleSubmit} action="" className="flex flex-col gap-6 w-full" name="form">
         <input
           type="text"
           placeholder="Name"
           className="border-b border-b-gray-300 pb-2 outline-0"
         />
         <input
-          type="text"
+          type="email"
           placeholder="Email or Phone Number"
           className="border-b border-gray-300 pb-2 outline-0"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
           className="border-b border-gray-300 pb-2 outline-0"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <input
-          type="button"
+          type="submit"
           value="Create Account"
           className="px-4 py-2 bg-[rgba(219,68,68,1)] text-white rounded-md cursor-pointer hover:bg-[#cd5858] transition"
-          onClick={() => prompt("Button clicked!")}
+          // onClick={() => prompt("Button clicked!")}
         />
 
         <span className="flex items-center justify-center border rounded-md border-gray-300 px-4 py-2 cursor-pointer transition hover:bg-gray-100">

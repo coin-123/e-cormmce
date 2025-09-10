@@ -39,7 +39,7 @@ export default function Products() {
   // Put all products in an array
   const products = [
     { id: 1, name: "Camera", image: frame13, price: "$320" },
-    { id: 2, name: "HV-G92 Gamepad", image: frame14, price: "$300" },
+    { id: 2, name: "Kid Electric Car", image: frame14, price: "$300" },
     { id: 3, name: "Dog Food", image: frame15, price: "$463" },
     { id: 4, name: "Boots", image: frame16, price: "$500" },
     { id: 5, name: "Jacket", image: frame17, price: "$230" },

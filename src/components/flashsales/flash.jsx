@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import Countdown from "react-countdown";
 import { FaStar } from "react-icons/fa";
@@ -25,6 +27,7 @@ import frame15 from "../../assets/dog.png";
 
 import { useStore } from "../../context/StoreContext.jsx";
 import { useCart } from "../../context/CartContext.jsx";
+import { useAuth } from "../../context/AuthContext";
 
 const products = [
   { id: 1, name: "HV-G92 Gamepad", image: frame3, price: 120 },
@@ -38,8 +41,13 @@ const products = [
 ];
 
 export default function Flash() {
+
   const { addToCart } = useCart();
   const { addToWishlist } = useStore();
+   const { user } = useAuth();
+   const navigate = useNavigate(); // from react-router
+
+
   const swiperRef = useRef(null);
 
   const totalStars = 5;
@@ -57,10 +65,23 @@ export default function Flash() {
     setRatings((prev) => ({ ...prev, [productId]: starIndex }));
   };
 
+  // Handle adding to cart with auth check
+    const handleAddToCart = (product) => {
+    if (!user) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToCart(product); // allow adding if logged in
+    }
+  };
+  
+
+
+
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
       className="flex items-center justify-center w-full min-h-screen bg-white py-6 px-2"
@@ -159,7 +180,7 @@ export default function Flash() {
 
                 {/* Add to Cart */}
                 <button
-                  onClick={() => addToCart(p)}
+                  onClick={() => handleAddToCart(p)}
                   className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition 
              block md:hidden group-hover:md:block"
                 >
@@ -206,4 +227,4 @@ export default function Flash() {
       </div>
     </motion.section>
   );
-}
+};

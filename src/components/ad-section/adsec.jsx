@@ -57,7 +57,7 @@ const Adsec = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex items-center justify-center w-full md:w-1/2 h-[250px] md:h-full bg-[radial-gradient(circle_at_center,_black,gray,black,black)] animate-gradientMove rounded-[3px]">
+        <div className="flex items-center justify-center w-full md:w-1/2 h-full md:h-full bg-[radial-gradient(circle_at_center,_black,gray,black,black)] animate-gradientMove rounded-[3px]">
           <img src={frame1} alt="Product" className="h-full object-contain" />
         </div>
       </div>
