@@ -108,6 +108,10 @@ const Nav = ({ logo, links, bgColor, textColor, showSearch, icons }) => {
           ))}
            <div className="flex  flex-col w-[80%] h-full border-r border-t border-b border-gray-300 p-4 ">
             <p className="font-bold text-[1.2rem] mb-[1rem] ">Categories</p>
+
+<Link to="/newArrival" className="mb-[0.5rem] text-black hover:text-gray-600 transition ease-in-out duration-300">
+  New Arrival
+</Link>
           <a href="#" className="">
             Woman's Fashion 
           </a>

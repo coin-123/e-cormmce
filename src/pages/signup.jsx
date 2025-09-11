@@ -136,7 +136,7 @@ const Signup = () => {
 
         <div className="flex text-gray-400 items-center justify-center text-sm">
           <p className="mr-[10px]">Already have account?</p>
-          <Link to="/login" className="underline">
+                  <Link to="/login" className=" underline  hover:text-black transition ease-in-out duration-300">
             Log In
           </Link>
         </div>
