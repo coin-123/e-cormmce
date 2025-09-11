@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate, useLocation,  } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc"; // colored Google icon
 import Anima from "../components/animated/anima.jsx";
@@ -25,16 +26,35 @@ const Signup = () => {
 
 
    const { signup } = useAuth();
+    const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/"; // where to go back after signup
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     signup(email, password);
+  //     alert("Account created successfully!");
+  //   } catch (err) {
+  //     alert(err.message); // show "Account already exists"
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     try {
-      signup(email, password);
-      alert("Account created successfully!");
+      await signup( email, password );
+      // after successful signup, redirect back
+
+      navigate(from, { replace: true });
     } catch (err) {
-      alert(err.message); // show "Account already exists"
+      setError(err.message || "Signup failed");
     }
   };
 
@@ -71,6 +91,7 @@ const Signup = () => {
     <div className="mb-6 text-center md:text-left">
       <h1 className="text-2xl md:text-3xl font-bold mb-[10px]">Create an account</h1>
       <p className="text-gray-600 text-sm md:text-base">Enter your details below</p>
+      {error && <div className="mb-3 text-red-600">{error}</div>}
     </div>
 
     <div className="flex items-center justify-center w-full md:w-[80%]">

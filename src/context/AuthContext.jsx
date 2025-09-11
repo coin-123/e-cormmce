@@ -13,8 +13,14 @@ export const AuthProvider = ({ children }) => {
 
   // Sign up
   const signup = (email, password) => {
+
+    if (!email || !password) {
+        throw new Error("Email and password required");
+    };
+
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    const exists = users.find((u) => u.email === email);
+    // const exists = users.find((u) => u.email === email);
+    const exists = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
 
     if (exists) {
       throw new Error("Account already exists");
@@ -31,7 +37,8 @@ export const AuthProvider = ({ children }) => {
   const login = (email, password) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     const validUser = users.find(
-      (u) => u.email === email && u.password === password
+    //   (u) => u.email === email && u.password === password
+    (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
     );
 
     if (!validUser) throw new Error("Invalid credentials");

@@ -67,10 +67,11 @@ export default function Flash() {
 
   // Handle adding to cart with auth check
     const handleAddToCart = (product) => {
-    if (!user) {
+    if (!user  ) {
       navigate("/signup"); // redirect if no account
     } else {
       addToCart(product); // allow adding if logged in
+      alert("Cart Added");
     }
   };
   

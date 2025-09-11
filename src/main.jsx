@@ -11,13 +11,15 @@ import { AuthProvider } from "./context/AuthContext";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <CartProvider>
+      
         <StoreProvider>   {/* ✅ Wrap App inside context */}
         <AuthProvider>
+          <CartProvider>
       <App />
+      </CartProvider>
     </AuthProvider>
       </StoreProvider>
-        </CartProvider>
+        
     </BrowserRouter>
   </StrictMode>
 );
