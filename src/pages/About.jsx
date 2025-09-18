@@ -75,7 +75,7 @@ export const About = () => {
           <h1 className=" text-[1.1rem] sm:text-[3rem] font-semibold">Our Story</h1>
 
           <span className="flex flex-col items-center justify-center gap-[0.9rem] sm:gap-[1.2rem] ">
-            <p className="text-[0.6rem] sm:text-[1rem]">
+            <p className="text-[0.8rem] sm:text-[1rem]">
               Launched in 2015, Exclusive is South Asia's premier online
               shopping marketplace with an active presence in Bangladesh,
               Supported by wide ranbe of tailored marketing, data and service
@@ -83,7 +83,7 @@ export const About = () => {
               millions custimers across the region.
             </p>
 
-            <p className="text-[0.6rem] sm:text-[1rem]">
+            <p className="text-[0.8rem] sm:text-[1rem]">
               Exclusive has more than 1 million products to offer, growing at a
               very fast. Exclusive offers a diverse assotment in categories
               ranging from consumer.
