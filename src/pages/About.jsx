@@ -71,7 +71,7 @@ export const About = () => {
       >
         {/* left sec */}
 
-        <div className="flex flex-col gap-[0.9rem] sm:gap-[1.5rem] justify-center w-[40%] h-auto">
+        <div className="flex flex-col gap-[0.9rem] sm:gap-[1.5rem] justify-center sm:w-[40%] h-auto">
           <h1 className=" text-[1.1rem] sm:text-[3rem] font-semibold">Our Story</h1>
 
           <span className="flex flex-col items-center justify-center gap-[0.9rem] sm:gap-[1.2rem] ">
