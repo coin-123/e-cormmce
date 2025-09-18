@@ -10,12 +10,12 @@ const Adsec = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex items-center justify-center w-full min-h-[520px] mb-[3rem]"
+      className="flex items-center justify-center w-full md:h-[520px] mb-[3rem]"
     >
-      <div className="flex flex-col md:flex-row items-center justify-between w-[90%] h-full bg-black rounded-[3px] overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between w-[90%] h-full  bg-black rounded-[3px] overflow-hidden">
         
         {/* Text Section */}
-        <div className="flex flex-col items-start justify-center w-full md:w-1/2 h-full px-6 py-8 gap-4 text-center md:text-left">
+        <div className="flex flex-col items-start justify-center w-full md:w-1/2 h-full px-6 py-0 md:py-8 gap-4 text-center md:text-left">
           {/* Logo / Category */}
           <span>
             <p className="text-[#31c831] font-bold">Categories</p>
@@ -57,7 +57,7 @@ const Adsec = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex items-center justify-center w-full md:w-1/2 h-full md:h-full bg-[radial-gradient(circle_at_center,_black,gray,black,black)] animate-gradientMove rounded-[3px]">
+        <div className="flex items-center justify-center w-full md:w-1/2 h-full sm:h-full bg-[radial-gradient(circle_at_center,_black,gray,black,black)] animate-gradientMove rounded-[3px]">
           <img src={frame1} alt="Product" className="h-full object-contain" />
         </div>
       </div>

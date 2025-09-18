@@ -35,6 +35,19 @@ const icons = [
   { src: searchIcon, alt: "searchIcon" },
 ];
 
+const qualifications = [
+  { img: frame9, title: "Free And Fast Delivery", desc: "Free delivery for all orders over $140" },
+  { img: frame10, title: "24/7 Customer Service", desc: "Eriendly 24/7 customer support" },
+  { img: frame11, title: "Money Back Guarantee", desc: "We return money within 30 days of purchase" },
+];
+
+const features = [
+  { img: frame2, title: "10.5k", desc: "Sallers active our site" },
+  { img: frame3, title: "33k", desc: "Monthly products Sale" },
+  { img: frame4, title: "45.5k", desc: "Customer active in our site" },
+  { img: frame5, title: "25k", desc: "Anual gross sales in our site" },
+];
+
 export const About = () => {
   return (
     <section className="flex flex-col items-center justify-center w-full ">
@@ -54,15 +67,15 @@ export const About = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.9 }}
-        className="mb-[7rem] flex items-center justify-between w-[90%] h-[550px] mt-[3rem]"
+        className="mb-[7rem] flex flex-col sm:flex-row items-center justify-between w-[90%] h-auto sm:h-[550px] mt-[3rem]"
       >
         {/* left sec */}
 
-        <div className="flex flex-col gap-[1.5rem] justify-center w-[40%] h-auto">
-          <h1 className=" text-[3rem] font-semibold">Our Story</h1>
+        <div className="flex flex-col gap-[0.9rem] sm:gap-[1.5rem] justify-center w-[40%] h-auto">
+          <h1 className=" text-[1.1rem] sm:text-[3rem] font-semibold">Our Story</h1>
 
-          <span className="flex flex-col items-center justify-center gap-[1.2rem] ">
-            <p className="">
+          <span className="flex flex-col items-center justify-center gap-[0.9rem] sm:gap-[1.2rem] ">
+            <p className="text-[0.6rem] sm:text-[1rem]">
               Launched in 2015, Exclusive is South Asia's premier online
               shopping marketplace with an active presence in Bangladesh,
               Supported by wide ranbe of tailored marketing, data and service
@@ -70,7 +83,7 @@ export const About = () => {
               millions custimers across the region.
             </p>
 
-            <p className="">
+            <p className="text-[0.6rem] sm:text-[1rem]">
               Exclusive has more than 1 million products to offer, growing at a
               very fast. Exclusive offers a diverse assotment in categories
               ranging from consumer.
@@ -94,39 +107,19 @@ export const About = () => {
         viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
         className="flex items-center justify-center w-[90%]  mb-[10rem] "
       >
-        <div className="grid-container ">
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame2} alt="" className="" />
+        <div className="grid-container flex flex-col  ">
+         {features.map((feature, index) => (
+           <div
+           key={index}           
+            className="flex flex-col items-center justify-center ">
+            <img src={feature.img} alt="" className="" />
             <span className="">
-              <p className="text-[20px] font-medium">10.5k</p>
-              <p className="text-[13px]">Sallers active our site</p>
+              <p className="text-[20px] font-medium">{feature.title}</p>
+              <p className="text-[13px]">{feature.desc}</p>
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame3} alt="" className="" />
-
-            <span className="">
-              <p className="text-[20px] font-medium">33k</p>
-              <p className=" text-[13px]">Monthly products Sale</p>
-            </span>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame4} alt="" className="" />
-
-            <span className="">
-              <p className="text-[20px] font-medium">45.5k</p>
-              <p className="text-[13px]">Customer active in our site</p>
-            </span>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame5} alt="" className="" />
-
-            <span className="">
-              <p className="text-[20px] font-medium">25k</p>
-              <p className="text-[13px]">Anual gross sales in our site</p>
-            </span>
-          </div>
-        </div>
+         ))}
+        </div> 
       </motion.div>
 
       {/* founders appartment */}
@@ -177,34 +170,21 @@ export const About = () => {
         viewport={{ once: true, amount: 0.2 }} // run once, trigger at 30% visibil
         className="flex items-center justify-center w-[90%]  mb-[10rem] "
       >
+
         <div className="qul-grid-container ">
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame9} alt="" className="" />
+          {qualifications.map((qualification, index) => (
+          <div
+          key={index}
+          className="flex flex-col items-center justify-center ">
+            <img src={qualification.img} alt="" className="" />
             <span className="">
-              <p className="text-[20px] font-medium">Free And Fast Delivery</p>
+              <p className="text-[20px] font-medium">{qualification.title}</p>
               <p className="text-[13px]">
-                Free delivery for all orders over $140
+                {qualification.desc}
               </p>
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame10} alt="" className="" />
-
-            <span className="">
-              <p className="text-[20px] font-medium">24/7 Customer Service</p>
-              <p className=" text-[13px]">Eriendly 24/7 customer support</p>
-            </span>
-          </div>
-          <div className="flex flex-col items-center justify-center ">
-            <img src={frame11} alt="" className="" />
-
-            <span className="">
-              <p className="text-[20px] font-medium">Money Back Guarantee</p>
-              <p className="text-[13px]">
-                We return money within 30 days of purchase
-              </p>
-            </span>
-          </div>
+             ))}
         </div>
       </motion.div>
 
