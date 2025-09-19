@@ -10,14 +10,14 @@ const links = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contactus" },
-  { label: "Sign Up", path: "/account" },
+  { label: "Sign Up", path: "/sgnup" },
  
 ];
 
 const icons = [
   { src: wishlist, alt: "Wishlist", path: "/wishlist" },
   { src: cart, alt: "Cart", path: "/cart"  },
-  { src: user, alt: "User", path: "/signup" },
+  { src: user, alt: "User", path: "/account" },
   { src: searchIcon, alt: "searchIcon" },
 ];
 
