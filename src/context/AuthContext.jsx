@@ -33,6 +33,8 @@ export const AuthProvider = ({ children }) => {
     setUser(newUser);
   };
 
+
+
   // Login
   const login = (email, password) => {
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -47,14 +49,46 @@ export const AuthProvider = ({ children }) => {
     setUser(validUser);
   };
 
+
+
   // Logout
   const logout = () => {
     localStorage.removeItem("currentUser");
     setUser(null);
   };
 
+
+  // updae profile
+  const updateProfile = (updatedUser) => {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+   if (!currentUser) throw new Error("No user logged in");
+
+  // ✅ Check if old password matches
+  if (currentUser.password !== oldPassword) {
+    throw new Error("Old password is incorrect");
+  }
+
+  // Replace the old user in the array
+  users = users.map((u) =>
+    u.email.toLowerCase() === currentUser.email.toLowerCase()
+      ? { ...u, ...updatedUser } // merge updates
+      : u
+  );
+
+  // Save new user data
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("currentUser", JSON.stringify({ ...currentUser, ...updatedUser }));
+
+  // If you’re using React state for user:
+  setUser({ ...currentUser, ...updatedUser });
+};
+
+
+
   return (
-    <AuthContext.Provider value={{ user, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, signup, login, logout, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );

@@ -9,6 +9,7 @@ import Contactus from './pages/contactus.jsx'
 import WishlistPage from "./pages/wishlist.jsx";
 import Cart from './pages/cart.jsx/'
 import NewArrival from "./pages/newArrival.jsx";
+import Account from "./pages/account.jsx";
 
 
 
@@ -25,6 +26,7 @@ function App() {
     <Route path="/wishlist" element={<WishlistPage/>} />
     <Route path="/cart" element={<Cart />} />
     <Route path="/newArrival" element={<NewArrival />} />
+    <Route path="/account" element={<Account />} />
 
 
 

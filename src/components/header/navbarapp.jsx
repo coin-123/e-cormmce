@@ -10,7 +10,7 @@ const links = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contactus" },
-  { label: "Sign Up", path: "/signup" },
+  { label: "Sign Up", path: "/account" },
  
 ];
 
