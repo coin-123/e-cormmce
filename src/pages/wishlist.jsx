@@ -9,7 +9,7 @@ const WishlistPage = () => {
 
   return (
    
-    <div className="flex flex-col justify-between h-auto">
+    <div className="flex flex-col justify-between h-[100vh]">
        <Nav />
       <div className="p-5">
         <h1 className="text-2xl font-bold mb-4">My Wishlist
