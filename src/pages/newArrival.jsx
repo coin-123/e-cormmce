@@ -58,7 +58,7 @@ const NewArrival = () => {
                   whileTap={{ scale: 0.9 }}
                   className="border-b text-sm md:text-base text-white w-fit cursor-pointer"
                 >
-                  Shop Now
+                  Shop Now.
                 </motion.button>
               </span>
               <div className="flex items-center justify-center mt-4 md:mt-0 md:w-1/2">
