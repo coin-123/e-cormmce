@@ -1,9 +1,11 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+    const navigate = useNavigate(); // Add this line
 
   // Load user from localStorage
   useEffect(() => {
@@ -12,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Sign up
-  const signup = (email, password) => {
+  const signup = (email, password, firstName= "", lastName="") => {
 
     if (!email || !password) {
         throw new Error("Email and password required");
@@ -26,7 +28,7 @@ export const AuthProvider = ({ children }) => {
       throw new Error("Account already exists");
     }
 
-    const newUser = { email, password };
+    const newUser = { email, password, firstName, lastName };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(newUser));
@@ -55,36 +57,38 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("currentUser");
     setUser(null);
+    navigate("/login"); // Redirect to login page after logout
   };
 
 
-  // updae profile
-  const updateProfile = (updatedUser) => {
+  const updateProfile = (updatedUser, oldPassword,) => {
   let users = JSON.parse(localStorage.getItem("users")) || [];
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-   if (!currentUser) throw new Error("No user logged in");
+  if (!currentUser) throw new Error("No user logged in");
 
-  // ✅ Check if old password matches
-  if (currentUser.password !== oldPassword) {
+  // Ensure both passwords are strings and trimmed
+  if ((currentUser.password || "").trim() !== (oldPassword || "").trim()) {
     throw new Error("Old password is incorrect");
   }
 
-  // Replace the old user in the array
+  // If password is not being changed, keep the old password
+  const finalUser = {
+    ...currentUser,
+    ...updatedUser,
+    password: updatedUser.password ? updatedUser.password : currentUser.password,
+  };
+
   users = users.map((u) =>
     u.email.toLowerCase() === currentUser.email.toLowerCase()
-      ? { ...u, ...updatedUser } // merge updates
+      ? finalUser
       : u
   );
 
-  // Save new user data
   localStorage.setItem("users", JSON.stringify(users));
-  localStorage.setItem("currentUser", JSON.stringify({ ...currentUser, ...updatedUser }));
-
-  // If you’re using React state for user:
-  setUser({ ...currentUser, ...updatedUser });
+  localStorage.setItem("currentUser", JSON.stringify(finalUser));
+  setUser(finalUser);
 };
-
 
 
   return (

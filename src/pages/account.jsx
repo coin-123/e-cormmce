@@ -3,12 +3,12 @@ import Nav from "../components/header/navbarapp.jsx";
 import Anima from "../components/animated/anima.jsx";
 import Footer from "../components/footer/footer.jsx";
 import { label } from "framer-motion/client";
-  import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const Account = () => {
   // State for each input
-    const { user, updateProfile } = useAuth();
-    // const { user } = useAuth();
+  const { user, updateProfile, logout } = useAuth();
+  // const { user } = useAuth();
   // const [name, setName] = useState(user?.name || "");
   // const [password, setPassword] = useState(user?.password || "");
   const [message, setMessage] = useState("");
@@ -17,8 +17,8 @@ const Account = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState(user?.email || "");
   const [oldPassword, setOldPassword] = useState(user?.oldPassword || "");
-  const [newPassword, setNewPassword] = useState(user?.newPassword ||"");
-  const [confirmPassword, setConfirmPassword] = useState(user?.confirmPassword || "");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   // Input configs for mapping
   const leftInputs = [
@@ -48,7 +48,7 @@ const Account = () => {
   const rightInputs = [
     {
       label: "Old Password",
-      type: "text",
+      type: "password",
       placeholder: "Old password",
       value: oldPassword,
       onChange: (e) => setOldPassword(e.target.value),
@@ -69,15 +69,18 @@ const Account = () => {
     },
   ];
 
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-      try {
-      updateProfile({  firstName, email, confirmPassword, newPassword }, oldPassword);
-      // updateProfile(firstName, email, confirmPassword,  newPassword);
+    try {
+      updateProfile({ firstName, email, password: newPassword }, oldPassword);
+      // updateProfile(  firstName, email, confirmPassword, newPassword, oldPassword);
+      // updateProfile(
+      //   { firstName, password: newPassword }, // updated fields
+      //   oldPassword                       // old password check
+      // );
+      alert("Profile updated!");
+      // updateProfile(firstName, email, confirmPassword, newPassword);
       setMessage("Profile updated successfully!");
     } catch (err) {
       setMessage(err.message);
@@ -91,12 +94,14 @@ const Account = () => {
 
       {/* welcome user */}
       <div className="w-[90%] flex   mt-10 mb-5 text-sm ">
-         <p className="text-lg font-bold">
-      Welcome!, {user?.firstName || "Guest"}!
-    </p>
+        <p className="text-lg font-bold">
+          Welcome!, {user?.firstName || "Guest"}!
+        </p>
       </div>
       <div className="w-full h-[90%] flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-[rgba(219,68,68,1)]">Edit Profile</h1>
+        <h1 className="text-4xl font-bold text-[rgba(219,68,68,1)]">
+          Edit Profile
+        </h1>
         <div className="flex items-center justify-center w-full">
           <form
             onSubmit={handleSubmit}
@@ -141,7 +146,15 @@ const Account = () => {
             >
               Save Changes
             </button>
-              {message && <p>{message}</p>}
+            {message && <p>{message}</p>}
+            <div className="w-full flex justify-end mb-[0.5rem]">
+              <button
+              className="w-[20%] bg-[rgba(219,68,68,1)] text-white rounded-md p-3 hover:bg-[rgba(200,68,68,1)] transition"
+              onClick={logout}
+            >
+              Logout
+            </button>
+            </div>
           </form>
         </div>
       </div>

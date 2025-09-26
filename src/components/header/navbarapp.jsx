@@ -5,23 +5,30 @@ import wishlist from "../../assets/Wishlist.png";
 import cart from "../../assets/Cart1.png";
 import user from "../../assets/user.png";
 import searchIcon from "../../assets/Vector6.png";
+import { useAuth } from "../../context/AuthContext"; // Import your auth hook
 
 const links = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contactus" },
-  { label: "Sign Up", path: "/sgnup" },
- 
-];
-
-const icons = [
-  { src: wishlist, alt: "Wishlist", path: "/wishlist" },
-  { src: cart, alt: "Cart", path: "/cart"  },
-  { src: user, alt: "User", path: "/account" },
-  { src: searchIcon, alt: "searchIcon" },
+  { label: "Sign Up", path: "/signup" },
 ];
 
 function NavbarApp() {
+  const { user: currentUser } = useAuth(); // Get the current user
+
+  const icons = [
+    { src: wishlist, alt: "Wishlist", path: "/wishlist" },
+    { src: cart, alt: "Cart", path: "/cart" },
+    {
+      src: user,
+      alt: "User",
+      path: currentUser ? "/account" : "/signup", // Dynamic path
+    },
+    { src: searchIcon, alt: "searchIcon" },
+  ];
+
+// function NavbarApp() {
   return (
     <Nav
       logo={logoImg}

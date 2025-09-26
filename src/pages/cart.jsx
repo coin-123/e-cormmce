@@ -40,7 +40,7 @@ const Cart = () => {
   );
 
   return (
-    <section className="flex flex-col items-center justify-center w-[90%] h-[100vh] mx-auto py-6">
+    <section className="flex flex-col items-center justify-center w-[90%]  mx-auto py-6">
       <Nav />
       <h1 className="text-2xl font-bold mb-6">🛒 My Cart</h1>
 
