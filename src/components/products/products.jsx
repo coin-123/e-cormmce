@@ -42,10 +42,10 @@ export default function Products() {
     { id: 2, name: "Kid Elec-Car", image: frame14, price: "$300" },
     { id: 3, name: "Dog Food-Dry", image: frame15, price: "$463" },
     { id: 4, name: "Boots", image: frame16, price: "$500" },
-    { id: 5, name: "Sport-Jacket", image: frame17, price: "$230" },
+    { id: 5, name: "Sport-Jacket", image: frame17, price: "$240" },
     { id: 6, name: "USB Elec-Pad", image: frame18, price: "$230" },
-    { id: 7, name: "Laptop", image: frame19, price: "$230" },
-    { id: 8, name: "Cosmetics", image: frame20, price: "$230" },
+    { id: 7, name: "Laptop", image: frame19, price: "$220" },
+    { id: 8, name: "Cosmetics", image: frame20, price: "$210" },
   ];
 
   return (
