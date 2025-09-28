@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../components/header/navbarapp.jsx";
-import Anima from "../components/animated/anima.jsx";
+// import Anima from "../components/animated/anima.jsx";
 import Footer from "../components/footer/footer.jsx";
 import { label } from "framer-motion/client";
 import { useAuth } from "../context/AuthContext";
@@ -89,7 +89,7 @@ const Account = () => {
 
   return (
     <section className="w-full flex flex-col items-center justify-center ">
-      <Anima />
+      {/* <Anima /> */}
       <Nav />
 
       {/* welcome user */}

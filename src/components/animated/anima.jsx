@@ -8,14 +8,14 @@ const Anima = () => {
     //  initial={{ scale: 0.8, opacity: 0 }}
     //   animate={{  scale: 1, opacity: 1 }}
     //   transition={{ repeat: Infinity, duration: 2, ease: "linear"}}
-     className="flex items-center justify-center w-full h-[48px] bg-black">
-        <div className="flex items-center justify-center h-full w-[60%]"> 
+     className="flex items-center justify-center w-full h-auto bg-black">
+        <div className="flex items-center justify-center h-full w-[95%] sm:w-[60%]"> 
             <div className="flex items-center justify-center h-full gap-[10px]">
-                  <p className="text-white"> Summer Sale For All Swim And Free Express Delivery - OFF 50%!</p>           
-                 <div className="cursor-pointer"> <p className="text-white underline">Shop Now</p> </div>
+                  <p className="text-white text-[0.6rem]"> Summer Sale For All Swim And Free Express Delivery - OFF 50%!</p>           
+                 <div className="cursor-pointer"> <p className="text-[0.6rem] text-white underline">Shop Now</p> </div>
             </div>
             <div className=" relative right-[-14rem] cursor-pointer">
-                <img src={frame3} alt="" />
+                {/* <img src={frame3} alt="" className="cursor-pointer"/> */}
             </div>
 
            {/* <button className="bg-blue-500 text-white px-6 py-3 rounded-lg 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from "../components/header/navbarapp.jsx";
 import Footer from "../components/footer/footer.jsx";
-import Anima from "../components/animated/anima.jsx";
+// import Anima from "../components/animated/anima.jsx";
 
 
 
@@ -29,7 +29,7 @@ const icons = [
 const Contactus = () => {
   return (
     <section className=" flex flex-col justify-between items-center w-full h-screen">
-        <Anima />
+        {/* <Anima /> */}
 
         <Nav
         logo={logoImg}

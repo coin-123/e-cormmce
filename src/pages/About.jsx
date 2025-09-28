@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Nav from "../components/header/navbarapp.jsx";
 import Footer from "../components/footer/footer.jsx";
-import Anima from "../components/animated/anima.jsx";
+// import Anima from "../components/animated/anima.jsx";
 import frame1 from "../assets/twoafrican.png";
 import frame2 from "../assets/Service.png";
 import frame3 from "../assets/Services.png";
@@ -51,7 +51,7 @@ const features = [
 export const About = () => {
   return (
     <section className="flex flex-col items-center justify-center w-full ">
-      <Anima />
+      {/* <Anima /> */}
       <Nav
         logo={logoImg}
         links={links}
