@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import Countdown from "react-countdown";
 import { FaStar } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import { toast } from 'react-toastify';
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -28,6 +31,8 @@ import frame15 from "../../assets/dog.png";
 import { useStore } from "../../context/StoreContext.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { useAuth } from "../../context/AuthContext";
+import { showToast } from "../../context/Toast.jsx";
+
 
 const products = [
   { id: 1, name: "HV-G92 Gamepad", image: frame3, price: 120 },
@@ -71,10 +76,21 @@ export default function Flash() {
       navigate("/signup"); // redirect if no account
     } else {
       addToCart(product); // allow adding if logged in
-      alert("Cart Added");
+      showToast("✅ Operation successful!", "success");
     }
   };
-  
+
+   // handle add to wishlist
+  const handleAddToWishlist = (product) => {
+    if (!user  ) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToWishlist(product); // allow adding if logged in
+      showToast("✅ Added Item to Wishlist", "success");
+    }
+  };
+
+  // const notify = () => toast.success("🎉 Welcome to React Toastify!");
 
 
 
@@ -169,7 +185,7 @@ export default function Flash() {
                       whileHover={{ scale: 1.2 }}
                       transition={{ type: "spring", stiffness: 600 }}
 
-                      onClick={() => addToWishlist(p)}
+                      onClick={() => handleAddToWishlist(p)}
                     />
                   </div>
                 </div>

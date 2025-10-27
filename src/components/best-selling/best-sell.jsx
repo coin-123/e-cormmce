@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import frame1 from '../../assets/Rectangle.png'
@@ -13,6 +14,8 @@ import frame12 from '../../assets/sam.png'
 
 import { useStore } from "../../context/StoreContext.jsx";
 import { useCart } from "../../context/CartContext.jsx";
+import { useAuth } from "../../context/AuthContext";
+import { showToast } from "../../context/Toast.jsx";
 
 
 
@@ -37,6 +40,8 @@ export default function Flash() {
 
    const { addToCart } = useCart();
     const { addToWishlist } = useStore();
+       const { user } = useAuth();
+   const navigate = useNavigate(); // from react-router
     
 
   const totalStars = 5;
@@ -55,6 +60,26 @@ export default function Flash() {
   // Set rating for a specific product
   const handleRating = (productIndex, starIndex) => {
     setRatings(prev => ({ ...prev, [productIndex]: starIndex }));
+  };
+
+  // Handle adding to cart with auth check
+    const handleAddToCart = (product) => {
+    if (!user  ) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToCart(product); // allow adding if logged in
+      showToast("✅ Operation successful!", "success");
+    }
+  };
+
+  // handle add to wishlist
+  const handleAddToWishlist = (product) => {
+    if (!user  ) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToWishlist(product); // allow adding if logged in
+      showToast("✅ Added Item to Wishlist", "success");
+    }
   };
 
 
@@ -124,7 +149,7 @@ export default function Flash() {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
            transition={{ type: "spring", stiffness: 600 }}
-           onClick={() => addToWishlist(flashProducts)}
+           onClick={() => handleAddToWishlist(flashProducts)}
             className="cursor-pointer"
           />
         </div>
@@ -142,7 +167,7 @@ export default function Flash() {
       {/* Add to Cart */}
       <div className="w-full">
                 <button
-                  onClick={() => addToCart(flashProducts)}
+                  onClick={() => handleAddToCart(flashProducts)}
                   className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition 
              block md:hidden group-hover:md:block"
                 >

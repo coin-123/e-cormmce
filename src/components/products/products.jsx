@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import frame5 from "../../assets/eye.png";
@@ -14,11 +15,15 @@ import frame20 from "../../assets/cusmetics.png";
 
 import { useStore } from "../../context/StoreContext.jsx";
 import { useCart } from "./../../context/CartContext.jsx";
+import { useAuth } from "../../context/AuthContext";
+import { showToast } from "../../context/Toast.jsx";
 
 
 export default function Products() {
   const { addToWishlist } = useStore();
     const { addToCart } = useCart();
+       const { user } = useAuth();
+   const navigate = useNavigate(); // from react-router
   
   const totalStars = 5;
 
@@ -35,6 +40,28 @@ export default function Products() {
   const handleRating = (id, starIndex) => {
     setRatings((prev) => ({ ...prev, [id]: starIndex }));
   };
+
+    // Handle adding to cart with auth check
+    const handleAddToCart = (product) => {
+    if (!user  ) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToCart(product); // allow adding if logged in
+      showToast("✅ Operation successful!", "success");
+    }
+  };
+
+   // handle add to wishlist
+  const handleAddToWishlist = (product) => {
+    if (!user  ) {
+      navigate("/signup"); // redirect if no account
+    } else {
+      addToWishlist(product); // allow adding if logged in
+      showToast("✅ Added Item to Wishlist", "success");
+    }
+  };
+
+
 
   // Put all products in an array
   const products = [
@@ -85,7 +112,7 @@ export default function Products() {
                   alt="Wishlist"
                   whileHover={{ scale: 1.2 }}
                   className="cursor-pointer "
-                  onClick={() => addToWishlist(product)}
+                  onClick={() => handleAddToWishlist(product)}
                 />
               </div>
 
@@ -97,7 +124,7 @@ export default function Products() {
               {/* Add to cart button */}
               <div className="w-full">
                 <button
-                  onClick={() => addToCart(product)}
+                  onClick={() => handleAddToCart(product)}
                   className="w-full bg-black text-white py-2 text-sm font-medium hover:bg-gray-800 transition 
              block md:hidden group-hover:md:block"
                 >

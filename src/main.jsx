@@ -7,6 +7,8 @@ import App from "./App.jsx";
 import { StoreProvider } from "./context/StoreContext.jsx"; // ✅ import your context
 import { CartProvider } from "./context/CartContext.jsx";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastProvider } from "./context/Toast.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,6 +18,7 @@ createRoot(document.getElementById("root")).render(
         <AuthProvider>
           <CartProvider>
       <App />
+      <ToastProvider />
       </CartProvider>
     </AuthProvider>
       </StoreProvider>

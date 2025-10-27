@@ -10,6 +10,9 @@ import WishlistPage from "./pages/wishlist.jsx";
 import Cart from './pages/cart.jsx/'
 import NewArrival from "./pages/newArrival.jsx";
 import Account from "./pages/account.jsx";
+// import 'react-toastify/dist/ReactToastify.css';
+// import { ToastProvider } from "./context/Toast";
+
 
 
 
